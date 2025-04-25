@@ -1,0 +1,17 @@
+resources:
+  - openwebui-deployment.yaml
+  - openwebui-service.yaml
+  - litellm-deployment.yaml
+  - litellm-service.yaml
+
+configMapGenerator:
+  - name: litellm-config
+    files:
+      - config.yaml
+
+secretGenerator:
+  - name: litellm-secrets
+    literals:
+      - OPENAI_API_KEY=sk-xxxx
+
+namespace: openwebui 

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: litellm
+  namespace: openwebui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: litellm
+  template:
+    metadata:
+      labels:
+        app: litellm
+    spec:
+      containers:
+        - name: litellm
+          image: ghcr.io/berriai/litellm:main-latest
+          ports:
+            - containerPort: 4000
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config.yaml
+              subPath: config.yaml
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: litellm-secrets
+                  key: OPENAI_API_KEY
+            - name: DATABASE_URL
+              value: "postgresql://user:pass@localhost:5432/fakedb"
+            - name: LITELLM_MASTER_KEY
+              value: "sk-1234-very-secret-key"
+            - name: LITELLM_SALT_KEY
+              value: "sk-very-secure-salt-key"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: litellm-config
