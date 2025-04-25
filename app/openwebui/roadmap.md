@@ -1,13 +1,9 @@
-1. openwebui:
--add ingress
+statefulset pour psql
+gérer les secret
+le DNS
+le https
 
-2. litellm:
-gestion des secrets?
+le monitoring:
+-stockage des conversations via VPC, mettre des alertes si dépassement et supprimer les données dans le pod via un CronJob
 
-3. monitor openwebui:
--stockage des conversations vi VPC, mettre des alertes si dépassement et supprimer les données dans le pod via un CronJob
-
-4. argocd:
-
-5. deploy on AZURE with terraform:
-
+argocd

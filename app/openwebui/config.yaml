@@ -4,7 +4,5 @@ model_list:
       model: openai/gpt-3.5-turbo
       api_key: os.environ/OPENAI_API_KEY
 
-general_settings:
-  disable_spend_tracking: true
-  disable_database: true
+
 

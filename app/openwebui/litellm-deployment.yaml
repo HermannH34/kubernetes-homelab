@@ -29,7 +29,7 @@ spec:
                   name: litellm-secrets
                   key: OPENAI_API_KEY
             - name: DATABASE_URL
-              value: "postgresql://user:pass@localhost:5432/fakedb"
+              value: "postgresql://user:pass@postgres:5432/fakedb"
             - name: LITELLM_MASTER_KEY
               value: "sk-1234-very-secret-key"
             - name: LITELLM_SALT_KEY
