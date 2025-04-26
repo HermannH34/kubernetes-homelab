@@ -3,12 +3,7 @@ resources:
   - openwebui-service.yaml
   - litellm-deployment.yaml
   - litellm-service.yaml
-  - postgres-deployment.yaml
-
-configMapGenerator:
-  - name: litellm-config
-    files:
-      - config.yaml
+  - postgres-statefulset.yaml
 
 secretGenerator:
   - name: litellm-secrets

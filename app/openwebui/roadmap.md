@@ -1,4 +1,8 @@
-statefulset pour psql
+regarder comment gerer psql:
+regarder comment déplacer psql dans un dossier à part
+verifier que ce qui est stocké dans PSQL l'est sur le disque
+stocker les données de openwebui
+
 gérer les secret
 le DNS
 le https
