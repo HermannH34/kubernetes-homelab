@@ -22,14 +22,33 @@ spec:
             - name: OPENAI_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: litellm-secrets
+                  name: app-secrets
                   key: OPENAI_API_KEY
-            - name: DATABASE_URL
-              value: "postgresql://user:pass@postgres:5432/fakedb"
             - name: LITELLM_MASTER_KEY
-              value: "sk-1234-very-secret-key"
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: LITELLM_MASTER_KEY
             - name: LITELLM_SALT_KEY
-              value: "sk-very-secure-salt-key"
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: LITELLM_SALT_KEY
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: POSTGRES_PASSWORD
             - name: STORE_MODEL_IN_DB
               value: "true"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: DATABASE_URL
 

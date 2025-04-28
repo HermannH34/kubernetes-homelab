@@ -21,14 +21,22 @@ spec:
             - name: POSTGRES_DB
               value: fakedb
             - name: POSTGRES_USER
-              value: user
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: pass
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: POSTGRES_PASSWORD
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata/db
           ports:
             - containerPort: 5432
           volumeMounts:
             - name: postgres-data
-              mountPath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql/data/pgdata
   volumeClaimTemplates:
     - metadata:
         name: postgres-data
@@ -37,17 +45,3 @@ spec:
         resources:
           requests:
             storage: 1Gi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-  namespace: openwebui
-spec:
-  type: ClusterIP
-  selector:
-    app: postgres
-  ports:
-    - protocol: TCP
-      port: 5432
-      targetPort: 5432 

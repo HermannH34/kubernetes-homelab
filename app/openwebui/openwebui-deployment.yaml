@@ -22,10 +22,26 @@ spec:
             - name: HOST
               value: "0.0.0.0"
             - name: WEBUI_SECRET_KEY
-              value: "changeme"
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: WEBUI_SECRET_KEY
             - name: DB_ENABLED
               value: "true"
             - name: DB_TYPE
               value: "postgres"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: POSTGRES_PASSWORD
             - name: DATABASE_URL
-              value: "postgresql://user:pass@postgres:5432/fakedb"
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: DATABASE_URL

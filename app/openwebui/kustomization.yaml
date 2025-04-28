@@ -4,10 +4,7 @@ resources:
   - litellm-deployment.yaml
   - litellm-service.yaml
   - postgres-statefulset.yaml
-
-secretGenerator:
-  - name: litellm-secrets
-    literals:
-      - OPENAI_API_KEY=sk-xxxx
+  - sealed-secrets.yaml
+  - postgres-service.yaml
 
 namespace: openwebui 
