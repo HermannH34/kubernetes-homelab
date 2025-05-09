@@ -10,3 +10,6 @@ The purpose of my homelab is to learn and have fun. As a software engineer, I’
 -secrets are handled and encrypted
 -few apps are deployed
 -gitops is working using ArgoCD
+
+## Future
+-setup production cluster
