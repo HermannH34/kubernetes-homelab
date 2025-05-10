@@ -6,3 +6,4 @@ resources:
   - namespace.yaml
   - storage.yaml
   - configmap.yaml
+  - secret.yaml
