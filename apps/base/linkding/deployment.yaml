@@ -26,6 +26,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: linkding-env
+            - secretRef:
+                name: linkding-secret
           volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data
