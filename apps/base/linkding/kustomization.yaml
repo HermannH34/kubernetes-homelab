@@ -6,5 +6,4 @@ resources:
   - namespace.yaml
   - storage.yaml
   - linkding-env.yaml
-  - tunnel-credentials.yaml
   - service.yaml
