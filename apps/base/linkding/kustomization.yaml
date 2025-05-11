@@ -5,5 +5,5 @@ resources:
   - deployment.yaml
   - namespace.yaml
   - storage.yaml
-  - secret.yaml
+  - linkding-env.yaml
   - service.yaml
