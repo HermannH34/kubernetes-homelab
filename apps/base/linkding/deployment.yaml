@@ -24,8 +24,6 @@ spec:
             runAsGroup: 1000
             allowPrivilegeEscalation: false
           envFrom:
-            - configMapRef:
-                name: linkding-env
             - secretRef:
                 name: linkding-env
           volumeMounts:
