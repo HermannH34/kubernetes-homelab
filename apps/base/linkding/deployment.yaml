@@ -23,9 +23,9 @@ spec:
             runAsUser: 1000
             runAsGroup: 1000
             allowPrivilegeEscalation: false
-          envFrom:
-            - secretRef:
-                name: linkding-env
+          # envFrom:
+          #   - secretRef:
+          #       name: linkding-env
           volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data
