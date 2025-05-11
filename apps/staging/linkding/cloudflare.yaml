@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudflared
-  namespace: cloudflare
 spec:
   selector:
     matchLabels:
@@ -71,7 +70,7 @@ data:
     
     tunnel: ldpi
 
-    credentials-file: /etc/cloudflared/creds/credentials.json
+    credentials-file: /root/.cloudflared/dcc80502-3d29-4cab-8cef-f9122ae84dde.json 
 
     # Serves the metrics server under /metrics and the readiness server under /ready
     metrics: 0.0.0.0:2000
