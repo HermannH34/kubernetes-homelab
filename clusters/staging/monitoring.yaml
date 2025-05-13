@@ -12,7 +12,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./monitoring/config/controller/staging
+  path: ../monitoring/controllers/staging/kube-prometheus-stack.yaml
   prune: true
   # decryption:
   #   provider: sops
