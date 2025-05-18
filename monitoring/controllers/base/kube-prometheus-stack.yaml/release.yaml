@@ -36,9 +36,8 @@ spec:
         annotations:
           kubernetes.io/ingress.class: "traefik"
         hosts:
-          - host: grafana.quickyrails.com
-            paths:
-              - /
+          - grafana.quickyrails.com
+        path: /
         # tls:
         #   - hosts:
         #       - grafana.example.com
