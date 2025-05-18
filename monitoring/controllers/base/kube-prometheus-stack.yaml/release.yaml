@@ -30,4 +30,16 @@ spec:
           kind: PrometheusRule
   values:
     grafana:
-      adminPassword: mischa
+      adminPassword: hermanno
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "traefik"
+        hosts:
+          - host: grafana.example.com
+            paths:
+              - /
+        # tls:
+        #   - hosts:
+        #       - grafana.example.com
+            # secretName: grafana-tls
