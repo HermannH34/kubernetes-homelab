@@ -40,5 +40,5 @@ spec:
         path: /
         tls:
           - hosts:
-              - grafana.example.com
+              - grafana.quickyrails.com
             secretName: grafana-tls
