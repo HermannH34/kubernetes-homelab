@@ -14,7 +14,7 @@ spec:
     name: flux-system
   path: ../monitoring/controllers/staging/kube-prometheus-stack.yaml
   prune: true
-  # decryption:
-  #   provider: sops
-  #   secretRef:
-  #     name: sops-age
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
