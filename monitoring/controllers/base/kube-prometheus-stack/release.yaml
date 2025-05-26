@@ -33,11 +33,12 @@ spec:
       adminPassword: hermanno
       ingress:
         enabled: true
-        annotations:
-          kubernetes.io/ingress.class: "traefik"
+        ingressClassName: traefik
         hosts:
-          - grafana.quickyrails.com
-        path: /
+          - host: grafana.quickyrails.com
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
           - hosts:
               - grafana.quickyrails.com
