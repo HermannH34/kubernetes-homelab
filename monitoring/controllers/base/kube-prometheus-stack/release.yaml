@@ -42,3 +42,4 @@ spec:
           - hosts:
               - grafana.quickyrails.com
             secretName: grafana-tls-secret
+            
