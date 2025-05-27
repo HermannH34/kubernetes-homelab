@@ -59,7 +59,7 @@ spec:
             memory: true
         - grafana:
             type: grafana
-            url: http://grafana.quickyrails.com
+            url: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local:3000
             username: admin
             password: hermanno
       
