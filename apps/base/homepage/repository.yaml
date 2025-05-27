@@ -5,4 +5,4 @@ metadata:
   namespace: homepage
 spec:
   interval: 24h
-  url: https://benphelps.github.io/homepage/ 
+  url: oci://ghcr.io/benphelps/homepage 
