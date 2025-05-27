@@ -47,9 +47,9 @@ spec:
       
       services:
         - Applications:
-            - Homepage:
-                href: http://localhost:3000/
-                description: Homepage Dashboard
+            # - Homepage:
+            #     href: http://localhost:3000/
+            #     description: Homepage Dashboard
       
       widgets:
         - resources:
@@ -59,7 +59,7 @@ spec:
             memory: true
         - grafana:
             type: grafana
-            url: https://grafana.quickyrails.com
+            url: http://grafana.quickyrails.com
             username: admin
             password: hermanno
       
