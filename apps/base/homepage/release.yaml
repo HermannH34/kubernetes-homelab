@@ -8,30 +8,77 @@ spec:
   chart:
     spec:
       chart: homepage
-      version: "1.2.0"  # Remplacez par une version spécifique
+      version: "*"  # Utilisez la dernière version disponible
       sourceRef:
         kind: HelmRepository
         name: homepage
         namespace: homepage
       interval: 12h
   values:
+    # Image mise à jour (celle du chart officiel)
+    image:
+      repository: ghcr.io/gethomepage/homepage
+      tag: latest
+    
+    # Variables d'environnement OBLIGATOIRES
+    env:
+      - name: HOMEPAGE_ALLOWED_HOSTS
+        value: "0.0.0.0"  # Permet l'accès depuis n'importe quelle IP
+    
+    # Configuration du service
     service:
       main:
-        enabled: true
-        type: ClusterIP
         ports:
           http:
             port: 3000
-
-    resources:
-      limits:
-        cpu: 100m
-        memory: 128Mi
-      requests:
-        cpu: 50m
-        memory: 64Mi
     
-    controller:
-      enabled: true
-      type: deployment
-      replicas: 1
+    # Ressources recommandées
+    resources:
+      requests:
+        memory: 64Mi
+        cpu: 50m
+      limits:
+        memory: 256Mi
+        cpu: 200m
+    
+    # Configuration de base
+    config:
+      bookmarks:
+        - Developer:
+            - Github:
+                - abbr: GH
+                  href: https://github.com/
+      
+      services:
+        - Applications:
+            - Homepage:
+                href: http://localhost:3000/
+                description: Homepage Dashboard
+      
+      widgets:
+        - resources:
+            backend: resources
+            expanded: true
+            cpu: true
+            memory: true
+        - search:
+            provider: duckduckgo
+            target: _blank
+      
+      kubernetes:
+        mode: disable
+      
+      settings: {}
+      
+      settingsString: |
+        title: My Homelab
+        headerStyle: boxed
+        layout:
+          Applications:
+    
+    # Persistance pour les logs
+    persistence:
+      logs:
+        enabled: true
+        type: emptyDir
+        mountPath: /app/config/logs
