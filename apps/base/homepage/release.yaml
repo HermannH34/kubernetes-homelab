@@ -46,9 +46,9 @@ spec:
                   href: https://github.com/HermannH34
       
       services:
-        - Applications:
+        - Homelab:
             - Homelab:
-                href: http://grafana.quickyrails.com
+                href: https://grafana.quickyrails.com
                 icon: grafana.png
                 username: admin
                 password: hermanno
