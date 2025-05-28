@@ -47,22 +47,20 @@ spec:
       
       services:
         - Applications:
-            # - Homepage:
-            #     href: http://localhost:3000/
-            #     description: Homepage Dashboard
-      
+            - Homelab:
+                href: http://grafana.quickyrails.com
+                icon: grafana.png
+                username: admin
+                password: hermanno
+                allowInsecure: true
+
       widgets:
         - resources:
             backend: resources
             expanded: true
             cpu: true
             memory: true
-        - grafana:
-            type: grafana
-            url: https://grafana.quickyrails.com
-            username: admin
-            password: hermanno
-            allowInsecure: true
+
       
       kubernetes:
         mode: disable
