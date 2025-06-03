@@ -13,3 +13,4 @@ The purpose of my homelab is to learn and have fun. As a software engineer, I’
 - GitOps is working using ArgoCD
 - Several apps are deployed
 - Monitoring is set up with Prometheus and Grafana
+- Automated dependency updates with Renovate
