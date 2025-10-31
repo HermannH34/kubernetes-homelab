@@ -1,0 +1,14 @@
+# SOPS age private keys (SENSIBLE - ne jamais commit!)
+age.agekey
+*.agekey
+
+# Temporary files
+/tmp/
+*.tmp
+*.save
+
+# Editor files
+.DS_Store
+*.swp
+*.swo
+*~
