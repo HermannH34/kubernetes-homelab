@@ -35,13 +35,11 @@ spec:
         enabled: true
         ingressClassName: traefik
         hosts:
-          - host: grafana.quickyrails.com
-            paths:
-              - path: /
-                pathType: Prefix
+          - grafana.quickyrails.com
+        path: /
+        pathType: Prefix
         tls:
           - secretName: grafana-tls-secret
             hosts:
               - grafana.quickyrails.com
-
             
