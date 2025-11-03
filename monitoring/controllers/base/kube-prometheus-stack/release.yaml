@@ -37,10 +37,8 @@ spec:
         hosts:
           - host: grafana.quickyrails.com
             paths:
-              - path: /
-                pathType: Prefix
+              - /
         tls:
-          - hosts:
+          - secretName: grafana-tls-secret
+            hosts:
               - grafana.quickyrails.com
-            secretName: grafana-tls-secret
-            
