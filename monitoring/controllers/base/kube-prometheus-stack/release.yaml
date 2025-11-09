@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "66.x"
+      version: "58.x"
 
       # version: "58.x"
 
@@ -42,4 +42,6 @@ spec:
           - secretName: grafana-tls-secret
             hosts:
               - grafana.quickyrails.com
+
+
             
