@@ -19,7 +19,7 @@
 
 ---
 
-**A declarative, production-ready Kubernetes cluster managed entirely through GitOps principles**
+**A declarative, semi-production Kubernetes cluster managed entirely through GitOps principles**
 
 
 </div>
@@ -195,12 +195,11 @@ kubernetes-homelab/
 
 ### 🚀 Short-term Goals (Next 3-6 months)
 - [ ] Deploy more applications
-- [ ] CI/CD pipeline integration
-- [ ] Implement automated Velero backups
+- [ ] Implement automated Longhorn Storage and backup
 
 ### 🏔️ Advanced Goals (6-12 months)
 - [ ] **Talos Linux**: Migrate to immutable, API-driven OS for Kubernetes
-- [ ] **Bare-metal load balancing**: MetalLB or Cilium BGP
+- [ ] **AI model**: Deploy and manage AI model on kubernetes with cheap GPU hardware
 
 
 ---
