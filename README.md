@@ -195,11 +195,11 @@ kubernetes-homelab/
 
 ### 🚀 Short-term Goals (Next 3-6 months)
 - [ ] Deploy more applications
-- [ ] Implement automated Longhorn Storage and backup
+- [ ] Implement automated Longhorn Storage and Backup
 
 ### 🏔️ Advanced Goals (6-12 months)
 - [ ] **Talos Linux**: Migrate to immutable, API-driven OS for Kubernetes
-- [ ] **AI model**: Deploy and manage AI model on kubernetes with cheap GPU hardware
+- [ ] **AI model**: Deploy and manage AI models on kubernetes with cheap GPU hardware
 
 
 ---
