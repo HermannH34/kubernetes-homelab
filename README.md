@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏠 Production-Grade Kubernetes Homelab
+# 🏠 Kubernetes Homelab (on bare metal)
 *Implementing production practices in a learning environment*
 
 [![K3s](https://img.shields.io/badge/k3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=black)](https://k3s.io/)
