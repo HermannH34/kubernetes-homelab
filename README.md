@@ -3,6 +3,9 @@
 # 🏠 Kubernetes Homelab (on bare metal)
 *Implementing production practices in a learning environment*
 
+> [!WARNING]
+> **⚠️ Work in Progress**: This homelab is under active development. Configurations may change frequently and some features may be incomplete or experimental.
+
 [![K3s](https://img.shields.io/badge/k3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=black)](https://k3s.io/)
 [![Kubernetes](https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 [![FluxCD](https://img.shields.io/badge/FluxCD-5468FF?style=for-the-badge&logo=flux&logoColor=white)](https://fluxcd.io/)
