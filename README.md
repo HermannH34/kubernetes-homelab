@@ -38,6 +38,11 @@ and every deployment is automated.
 
 **The Goal?** To demonstrate hands-on expertise with cloud-native technologies while self-hosting useful applications and learning by doing.
 
+## 🛤️ The Journey
+
+This homelab started with **K3d** for local development, then moved to **VPS servers** (4-core, 8GB RAM) for a more realistic setup. Currently hosted in the **Cloud** while I'm relocating to Canada 🇨🇦, but the plan is to eventually run it on **Raspberry Pi hardware** once settled—because there's something special about managing physical infrastructure.
+
+
 ---
 
 ## 🚀 The Technology Stack
