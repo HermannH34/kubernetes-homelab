@@ -19,11 +19,20 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: ghostfolio
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: postgres-user
             - name: POSTGRES_DB
-              value: ghostfolio
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: postgres-db
             - name: POSTGRES_PASSWORD
-              value: ghostfolio
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: postgres-password
 ---
 apiVersion: v1
 kind: Service
@@ -34,4 +43,3 @@ spec:
     - port: 5432
   selector:
     app: ghostfolio-postgres
-
