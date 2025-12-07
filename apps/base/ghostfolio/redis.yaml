@@ -1,8 +1,19 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: redis
 spec:
+  ports:
+    - port: 6379
+  selector:
+    app: ghostfolio-redis
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  serviceName: redis
   replicas: 1
   selector:
     matchLabels:
@@ -17,14 +28,19 @@ spec:
           image: redis:7-alpine
           ports:
             - containerPort: 6379
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: redis
-spec:
-  ports:
-    - port: 6379
-  selector:
-    app: ghostfolio-redis
-
+              name: redis
+          command:
+            - redis-server
+            - "--appendonly"
+            - "yes"
+          volumeMounts:
+            - name: redis-storage
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: redis-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
