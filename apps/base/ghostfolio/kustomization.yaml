@@ -6,4 +6,6 @@ resources:
   - postgres.yaml
   - redis.yaml
   - deployment.yaml
+  - postgres-secrets.yaml
+  - ghostfolio-secrets.yaml
 
