@@ -54,4 +54,4 @@ spec:
   ports:
     - port: 3333
   selector:
-    app: ghostfolios
+    app: ghostfolio
