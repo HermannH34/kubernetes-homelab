@@ -34,17 +34,6 @@ spec:
       persistence:
         enabled: true
         existingClaim: grafana-data
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        hosts:
-          - grafana.quickyrails.com
-        path: /
-        pathType: Prefix
-        tls:
-          - secretName: grafana-tls-secret
-            hosts:
-              - grafana.quickyrails.com
 
 
             
