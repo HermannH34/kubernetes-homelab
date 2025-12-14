@@ -97,7 +97,7 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
                  └───────┬───────┘
                          │
 ┌────────────────────────┴────────────────────────────────────┐
-│                    K3s Cluster (2 Nodes)                    │
+│                    K3s Cluster                              │
 │                                                              │
 │  ┌────────────┐      ┌──────────────┐    ┌──────────────┐  │
 │  │   Traefik  │◄─────┤   FluxCD     │───►│  Helm        │  │
