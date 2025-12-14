@@ -12,3 +12,7 @@ spec:
     name: flux-system
   path: ./monitoring/staging/kube-prometheus-stack
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age

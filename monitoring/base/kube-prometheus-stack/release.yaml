@@ -25,9 +25,13 @@ spec:
       - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
+  valuesFrom:
+    - kind: Secret
+      name: grafana-secrets
+      valuesKey: adminPassword
+      targetPath: grafana.adminPassword
   values:
     grafana:
-      adminPassword: hermanno
       persistence:
         enabled: true
         existingClaim: grafana-data
