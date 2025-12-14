@@ -120,15 +120,6 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
 └──────────────────────────────────────────────────────────────┘
 ```
 
-### Key Features
-
-- **🔄 Fully GitOps-driven**: Every change goes through Git
-- **🔐 Zero plaintext secrets**: All sensitive data encrypted with SOPS
-- **🌐 Secure external access**: Cloudflare Tunnels for zero-trust networking
-- **📊 Full observability**: Prometheus + Grafana monitoring every pod
-- **🤖 Automated maintenance**: Renovate keeps dependencies up-to-date
-- **📦 Declarative infrastructure**: Everything as code, reproducible anywhere
-
 ---
 
 ## 📁 Repository Structure
@@ -202,11 +193,11 @@ kubernetes-homelab/
 ### Planned Improvements
 
 ### 🚀 Short-term Goals (Next 3-6 months)
-- [ ] Deploy more applications
 - [ ] Implement automated Longhorn Storage and Backup
+- [ ] Infrastructure as Code for the entire setup
+- [ ] - [ ] Deploy more applications (E.g self hosted Github Runners)
 
 ### 🏔️ Advanced Goals (6-12 months)
-- [ ] **Talos Linux**: Migrate to immutable, API-driven OS for Kubernetes
 - [ ] **AI model**: Deploy and manage AI models on kubernetes with cheap GPU hardware
 
 
