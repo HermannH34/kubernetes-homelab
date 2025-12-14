@@ -139,13 +139,6 @@ kubernetes-homelab/
 - Archive integration
 - Persistent storage with backups
 
-### 📈 Grafana
-**Beautiful metrics and monitoring dashboards**
-
-- Real-time cluster metrics
-- Pre-configured dashboards for Kubernetes
-- Alert configuration and management
-- Accessible via Cloudflare Tunnel
 
 ---
 
