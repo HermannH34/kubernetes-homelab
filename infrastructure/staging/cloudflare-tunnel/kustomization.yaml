@@ -4,6 +4,6 @@ namespace: cloudflare-tunnel
 resources:
   - ../../base/cloudflare-tunnel
   - configmap.yaml
-  - tunnel-credentials.yaml
-  - cloudflare-secret.yaml
+  - cloudflare-secrets.yaml
+  - tunnel-secrets.yaml
 

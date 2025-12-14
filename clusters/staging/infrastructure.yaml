@@ -1,18 +1,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: infrastructure-controller
+  name: renovate
   namespace: flux-system
 spec:
   interval: 1m0s
-  # dependsOn:
-  #   - name: infra-configs
   retryInterval: 1m
   timeout: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/controllers/staging/renovate
+  path: ./infrastructure/staging/renovate
   prune: true
   decryption:
     provider: sops
@@ -31,7 +29,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/controllers/staging/cloudflare-tunnel
+  path: ./infrastructure/staging/cloudflare-tunnel
   prune: true
   decryption:
     provider: sops

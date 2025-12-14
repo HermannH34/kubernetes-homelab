@@ -3,4 +3,6 @@ kind: Kustomization
 namespace: ghostfolio
 resources:
   - ../../base/ghostfolio
+  - postgres-secrets.yaml
+  - ghostfolio-secrets.yaml
 
