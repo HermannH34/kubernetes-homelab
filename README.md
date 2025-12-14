@@ -195,7 +195,7 @@ kubernetes-homelab/
 ### 🚀 Short-term Goals (Next 3-6 months)
 - [ ] Implement automated Longhorn Storage and Backup
 - [ ] Infrastructure as Code for the entire setup
-- [ ] - [ ] Deploy more applications (E.g self hosted Github Runners)
+- [ ] Deploy more applications (E.g self hosted Github Runners)
 
 ### 🏔️ Advanced Goals (6-12 months)
 - [ ] **AI model**: Deploy and manage AI models on kubernetes with cheap GPU hardware
