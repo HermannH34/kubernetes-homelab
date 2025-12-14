@@ -45,7 +45,7 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
 
 ---
 
-## 🚀 The Technology Stack
+## 🚀 The Tech Stack
 
 ### Core Infrastructure
 
@@ -90,10 +90,12 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
 kubernetes-homelab/
 │
 ├── 📱 apps/                        # Application definitions
-│   ├── base/                       # Base Helm releases & configs
+│   ├── base/                       # Base manifests (reusable)
+│   │   ├── ghostfolio/             # Investment portfolio tracker
 │   │   ├── homepage/               # Dashboard application
 │   │   └── linkding/               # Bookmark manager
-│   └── staging/                    # Environment-specific overlays
+│   └── staging/                    # Environment-specific overlays & secrets
+│       ├── ghostfolio/
 │       ├── homepage/
 │       └── linkding/
 │
@@ -105,14 +107,16 @@ kubernetes-homelab/
 │       └── monitoring.yaml         # Monitoring reconciliation
 │
 ├── 🔧 infrastructure/              # Platform services
-│   └── controllers/
-│       └── base/renovate/          # Automated dependency updates
+│   ├── base/                       # Base manifests
+│   │   ├── cloudflare-tunnel/      # Secure external access
+│   │   └── renovate/               # Automated dependency updates
+│   └── staging/                    # Environment secrets & configs
+│       ├── cloudflare-tunnel/
+│       └── renovate/
 │
 ├── 📊 monitoring/                  # Observability stack
-│   ├── configs/                    # Monitoring configurations
-│   │   └── base/kube-prometheus-stack/
-│   └── controllers/                # Monitoring operators
-│       └── base/kube-prometheus-stack/
+│   ├── base/kube-prometheus-stack/ # Prometheus + Grafana
+│   └── staging/kube-prometheus-stack/
 │
 ├── 🔐 age.agekey                   # Age encryption key
 ├── 🔒 .sops.yaml                   # SOPS configuration
@@ -123,13 +127,13 @@ kubernetes-homelab/
 
 ## 📱 Deployed Applications
 
-### 🏠 Homepage
-**A modern, customizable application dashboard**
+### 💰 Ghostfolio
+**Open-source wealth management and portfolio tracker**
 
-- Centralized portal for all services
-- Resource monitoring integration
-- Custom bookmarks and widgets
-- Accessible via Traefik ingress
+- Track stocks, ETFs, cryptocurrencies, and more
+- Performance analytics and dividends tracking
+- Multi-currency support
+- PostgreSQL + Redis backend for reliability
 
 ### 🔖 Linkding
 **Minimalist, fast, and self-hosted bookmark manager**
