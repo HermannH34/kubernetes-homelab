@@ -75,7 +75,7 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
 | ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) **Prometheus** | Metrics Collection | Industry-standard monitoring system |
 | ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) **Grafana** | Visualization | Beautiful dashboards for cluster metrics |
 
-### Automation
+### Automatic upgrades
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
