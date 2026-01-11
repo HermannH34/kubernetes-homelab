@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏠 Kubernetes Homelab (on bare metal)
+# 🏠 Kubernetes Homelab
 *Implementing production practices in a learning environment*
 
 > [!WARNING]
