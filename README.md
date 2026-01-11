@@ -159,6 +159,7 @@ kubernetes-homelab/
 - [ ] Infrastructure as Code for the entire setup
 
 ### 🏔️ Advanced Goals (6-12 months)
+- [ ] Migrate FluxCD to ArgoCD with the help of AI Agents (for purpose testing) 
 - [ ]  Deploy self hosted open source runners
 - [ ] Setup CloudNativePG
 - [ ] **AI model**: Deploy and manage AI models on kubernetes with cheap GPU hardware
