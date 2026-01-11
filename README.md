@@ -151,7 +151,9 @@ kubernetes-homelab/
 
 ### Planned Improvements
 
-### 🚀 Short-term Goals (Next 3-6 months)
+### 🚀 Short-term Goals 
+- [ ] set Network Policies AND request/limits for the DB 
+- [ ] add Readiness/liveness for the  apps, set Request & limits for the apps 
 - [ ] Implement automated Longhorn Storage and Backup
 - [ ] Infrastructure as Code for the entire setup
 - [ ] Setup CloudNativePG
