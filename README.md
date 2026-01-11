@@ -153,13 +153,14 @@ kubernetes-homelab/
 
 ### 🚀 Short-term Goals 
 - [ ] set Network Policies AND request/limits for the DB 
-- [ ] add Readiness/liveness for the  apps, set Request & limits for the apps 
+- [ ] add Readiness/liveness for the  apps, set Request & limits for the apps
+- [ ] Create a deployment template for my NextJS personal apps
 - [ ] Implement automated Longhorn Storage and Backup
 - [ ] Infrastructure as Code for the entire setup
-- [ ] Setup CloudNativePG
-- [ ] Deploy more applications (E.g self hosted Github Runners)
 
 ### 🏔️ Advanced Goals (6-12 months)
+- [ ]  Deploy self hosted open source runners
+- [ ] Setup CloudNativePG
 - [ ] **AI model**: Deploy and manage AI models on kubernetes with cheap GPU hardware
 
 
