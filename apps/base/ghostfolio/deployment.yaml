@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ghostfolio
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: ghostfolio
