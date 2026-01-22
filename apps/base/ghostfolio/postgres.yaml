@@ -13,6 +13,16 @@ kind: StatefulSet
 metadata:
   name: postgres
 spec:
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: ghostfolio
+    ports:
+    - protocol: TCP
+      port: 5432
   serviceName: postgres
   replicas: 1
   selector:
