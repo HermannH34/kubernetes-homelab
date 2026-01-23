@@ -1,9 +1,7 @@
 2 NP:
 
-1. Linkding
+1. Linkding => OK
 
--Deny All (ingress, Egress)
--Exception: Ingress controller (ingress)
 
 2. Ghosfolio
 
