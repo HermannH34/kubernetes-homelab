@@ -6,4 +6,3 @@ resources:
   - namespace.yaml
   - storage.yaml
   - service.yaml
-  - np.yaml
