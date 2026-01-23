@@ -4,7 +4,9 @@ metadata:
   name: postgres-network-policy
   namespace: ghostfolio
 spec:
-  podSelector: {}
+  podSelector:
+    matchLabels:
+      app: ghostfolio-redis
   policyTypes:
   - Ingress
   ingress:
