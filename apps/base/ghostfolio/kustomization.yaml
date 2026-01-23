@@ -6,4 +6,5 @@ resources:
   - postgres.yaml
   - redis.yaml
   - deployment.yaml
+  - networkpolicy.yaml
 

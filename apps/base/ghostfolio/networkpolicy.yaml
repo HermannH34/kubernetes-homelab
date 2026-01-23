@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres-network-policy
+  namespace: ghostfolio
+spec:
+  podSelector:
+    matchLabels:
+      app: ghostfolio-redis
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: ghostfolio
+    ports:
+    - protocol: TCP
+      port: 5432
