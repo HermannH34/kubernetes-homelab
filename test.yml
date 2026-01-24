@@ -1,16 +1,4 @@
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: ghostfolio-default-deny
-  namespace: ghostfolio
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
-
----
+kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -63,49 +51,10 @@ spec:
       port: 5432
   - to:
     - ipBlock:
-        cidr: 0.0.0.0/0
+        cidr: 0.0.0.0/0  # Tout Internet
     ports:
+    - protocol: TCP
+      port: 80
     - protocol: TCP
       port: 443
-
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: redis-network-policy
-  namespace: ghostfolio
-spec:
-  podSelector:
-    matchLabels:
-      app: ghostfolio-redis 
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: ghostfolio
-    ports:
-    - protocol: TCP
-      port: 6379
-
----
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: postgres-network-policy
-  namespace: ghostfolio
-spec:
-  podSelector:
-    matchLabels:
-      app: ghostfolio-postgres
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: ghostfolio 
-    ports:
-    - protocol: TCP
-      port: 5432
+EOF
