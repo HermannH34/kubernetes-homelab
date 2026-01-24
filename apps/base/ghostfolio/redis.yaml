@@ -13,16 +13,6 @@ kind: StatefulSet
 metadata:
   name: redis
 spec:
-  policyTypes:
-  - Ingress
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: ghostfolio
-    ports:
-    - protocol: TCP
-      port: 6379
   serviceName: redis
   replicas: 1
   selector:
