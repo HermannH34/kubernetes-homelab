@@ -5,6 +5,6 @@
 
 2. Ghosfolio
 
--Deny All (ingress, Egress)
--PSQL & Redis: ghostfolio (ingress)
+
+
 -ghosfolio: Ingress controller (ingress)
