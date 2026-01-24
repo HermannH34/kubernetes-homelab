@@ -152,7 +152,7 @@ kubernetes-homelab/
 ### Planned Improvements
 
 ### 🚀 Short-term Goals 
-- [ ] Create a deployment template for my NextJS personal apps
+- [ ] Implement blue/green deployment
 - [ ] Implement automated Velero Storage and Backup
 - [ ] Infrastructure as Code for the entire setup with Terraform
 
