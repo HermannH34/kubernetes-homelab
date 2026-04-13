@@ -1,6 +1,7 @@
 # Cluster Health Check
 
 Script de diagnostic du cluster Kubernetes.
+A exécuter chaque jour.
 
 ## Usage
 
