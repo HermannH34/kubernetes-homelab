@@ -4,6 +4,7 @@ metadata:
   name: linkding-data
   namespace: linkding
 spec:
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:

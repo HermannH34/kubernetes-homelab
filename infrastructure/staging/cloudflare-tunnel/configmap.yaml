@@ -16,5 +16,7 @@ data:
       service: http://ghostfolio.ghostfolio.svc.cluster.local:3333
     - hostname: grafana.quickyrails.com
       service: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local:80
+    - hostname: longhorn.quickyrails.com
+      service: http://longhorn-frontend.longhorn-system.svc.cluster.local:80
     - service: http_status:404
 
