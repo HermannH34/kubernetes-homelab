@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: longhorn-system
 resources:
   - ../../base/longhorn
+  - longhorn-b2-secret.yaml
+  - recurring-job.yaml

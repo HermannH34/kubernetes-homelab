@@ -24,6 +24,8 @@ spec:
     defaultSettings:
       defaultReplicaCount: 2
       defaultDataPath: /var/lib/longhorn
+      backupTarget: s3://longhorn-backups@192.168.2.171:9000/
+      backupTargetCredentialSecret: longhorn-b2-secret
     persistence:
       defaultClass: true
       defaultFsType: ext4

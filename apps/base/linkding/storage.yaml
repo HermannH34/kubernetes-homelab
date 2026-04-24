@@ -3,10 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: linkding-data
   namespace: linkding
+  labels:
+    recurring-job-group.longhorn.io/backup-b2: enabled
 spec:
   storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi 
+      storage: 1Gi
