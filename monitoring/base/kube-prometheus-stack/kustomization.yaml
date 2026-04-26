@@ -5,4 +5,5 @@ resources:
   - repository.yaml
   - release.yaml
   - grafana-storage.yaml
+  - alerting-rules.yaml
 
