@@ -10,5 +10,7 @@ data:
     no-autoupdate: true
 
     ingress:
+    - hostname: grafana.quickyrails.com
+      service: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local:80
     - service: http_status:404
 
