@@ -1,0 +1,100 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kubernetes-essential
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+    app.kubernetes.io/part-of: kube-prometheus-stack
+spec:
+  groups:
+    - name: kubernetes-essential
+      rules:
+        # 1. Pod OOMKilled (événement récent)
+        - alert: ContainerOOMKilled
+          expr: |
+            increase(kube_pod_container_status_restarts_total[15m]) > 0
+            and on (namespace, pod, container)
+            kube_pod_container_status_last_terminated_reason{reason="OOMKilled"} == 1
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Container {{ $labels.container }} was OOMKilled (recent)"
+            runbook_url: "https://example.com/runbooks/oomkilled"
+
+        # 2. Pod crash looping
+        - alert: PodCrashLooping
+          expr: rate(kube_pod_container_status_restarts_total[15m]) > 0
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Pod {{ $labels.pod }} is crash looping"
+            runbook_url: "https://example.com/runbooks/crashloop"
+
+        # 3. Pod pending
+        - alert: PodPendingTooLong
+          expr: sum by (namespace, pod) (kube_pod_status_phase{phase="Pending"}) > 0
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Pod {{ $labels.pod }} is pending"
+            runbook_url: "https://example.com/runbooks/pod-pending"
+
+        # 4. Node not ready (version robuste)
+        - alert: NodeNotReady
+          expr: sum by (node) (kube_node_status_condition{condition="Ready",status="true"}) == 0
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Node {{ $labels.node }} is not ready"
+            runbook_url: "https://example.com/runbooks/node-not-ready"
+
+        # 5. CPU throttling
+        - alert: ContainerCPUThrottling
+          expr: |
+            rate(container_cpu_cfs_throttled_seconds_total[5m])
+              / (rate(container_cpu_usage_seconds_total[5m]) + 0.001) > 0.2
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Container {{ $labels.container }} is CPU throttled"
+            runbook_url: "https://example.com/runbooks/cpu-throttling"
+
+        # 6. Mémoire proche de la limite
+        - alert: ContainerMemoryNearLimit
+          expr: |
+            container_memory_working_set_bytes
+              / container_spec_memory_limit_bytes > 0.9
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Container {{ $labels.container }} memory at 90%+ of limit"
+            runbook_url: "https://example.com/runbooks/memory-near-limit"
+
+        # 7. Deployment replicas mismatch
+        - alert: DeploymentReplicasMismatch
+          expr: |
+            kube_deployment_spec_replicas
+              != kube_deployment_status_replicas_available
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Deployment {{ $labels.deployment }} replicas mismatch"
+            runbook_url: "https://example.com/runbooks/replicas-mismatch"
+
+        # 8. PVC pending
+        - alert: PersistentVolumeClaimPending
+          expr: kube_persistentvolumeclaim_status_phase{phase="Pending"} == 1
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "PVC {{ $labels.persistentvolumeclaim }} is pending"
+            runbook_url: "https://example.com/runbooks/pvc-pending"
