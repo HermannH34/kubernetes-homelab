@@ -1,23 +1,3 @@
-# Cluster Health Check
-
-Script for diagnosing the Kubernetes cluster.
-
-## Usage
-
-```bash
-./cluster-health.sh
-```
-
-## What it checks
-
-| # | Check | Command |
-|---|-------|---------|
-| 1 | Node status | `kubectl get nodes` |
-| 2 | API server readiness | `/readyz` endpoint |
-| 3 | Failing pods | `kubectl get pods -A` |
-| 4 | Resource usage | `kubectl top nodes` |
-| 5 | Recent Warning events | `kubectl get events` |
-
 ## Operational checklist
 
 This table summarizes the checks to perform according to their frequency to keep the cluster healthy and anticipate issues before they impact workloads.
@@ -36,8 +16,3 @@ This table summarizes the checks to perform according to their frequency to keep
 | Monthly | Control plane certificates | `kubeadm certs check-expiration` | Renew if < 30 days |
 | Monthly | Ingress certificates | `kubectl get certificates -A` | Check cert-manager |
 | Monthly | Capacity trends | `kubectl top nodes` (history) | Plan adjustments |
-
-## Prerequisites
-
-- `kubectl` configured with cluster access
-- Metrics server installed for check #4 — without it, a warning is displayed but the script continues
