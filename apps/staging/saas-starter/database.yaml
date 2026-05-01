@@ -1,0 +1,13 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: saas-starter-db
+  namespace: saas-starter
+spec:
+  instances: 3
+  storage:
+    size: 5Gi
+  bootstrap:
+    initdb:
+      database: saas_starter
+      owner: saas_starter
