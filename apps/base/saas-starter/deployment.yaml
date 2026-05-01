@@ -16,7 +16,7 @@ spec:
       initContainers:
         - name: migrate
           # {"$imagepolicy": "flux-system:saas-starter"}
-          image: ghcr.io/hermannh34/saas-starter:20260430-000000
+          image: ghcr.io/hermannh34/saas-starter:20260501-165944
           command: ["node", "node_modules/.bin/drizzle-kit", "migrate"]
           env:
             - name: POSTGRES_URL
@@ -27,7 +27,7 @@ spec:
       containers:
         - name: saas-starter
           # {"$imagepolicy": "flux-system:saas-starter"}
-          image: ghcr.io/hermannh34/saas-starter:20260430-000000
+          image: ghcr.io/hermannh34/saas-starter:20260501-165944
           ports:
             - containerPort: 3000
           env:
