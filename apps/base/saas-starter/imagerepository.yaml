@@ -6,11 +6,3 @@ metadata:
 spec:
   image: ghcr.io/hermannh34/saas-starter
   interval: 1m
-  # Si l'image GHCR est privée, créer le secret ghcr-auth dans flux-system :
-  # kubectl create secret docker-registry ghcr-auth \
-  #   --docker-server=ghcr.io \
-  #   --docker-username=HermannH34 \
-  #   --docker-password=<PAT avec read:packages> \
-  #   -n flux-system
-  # secretRef:
-  #   name: ghcr-auth

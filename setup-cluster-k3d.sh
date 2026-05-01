@@ -16,20 +16,21 @@ echo "🔐 Creating flux-system namespace..."
 kubectl create namespace flux-system
 
 echo "🔑 Creating SOPS secret..."
-if [ -f "age.agekey" ]; then
-  cat age.agekey | kubectl create secret generic sops-age \
+AGE_KEY_FILE="${HOME}/.config/sops/age/keys.txt"
+if [ -f "$AGE_KEY_FILE" ]; then
+  kubectl create secret generic sops-age \
     --namespace=flux-system \
-    --from-file=age.agekey=/dev/stdin
+    --from-file=age.agekey="$AGE_KEY_FILE"
   echo "✅ SOPS secret created"
 else
-  echo "⚠️  age.agekey file not found - Skipped"
+  echo "⚠️  Age key not found at $AGE_KEY_FILE - Skipped"
 fi
 
 echo "🎯 Bootstrapping Flux CD..."
 flux bootstrap github \
   --owner=HermannH34 \
   --repository=kubernetes-homelab \
-  --branch=main \
+  --branch=HermannH34/image-version-question \
   --path=clusters/staging \
   --personal
 

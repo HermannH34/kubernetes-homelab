@@ -4,13 +4,10 @@ metadata:
   name: saas-starter-db
   namespace: saas-starter
 spec:
-  instances: 1
+  instances: 3
   storage:
-    size: 2Gi
+    size: 5Gi
   bootstrap:
     initdb:
       database: saas_starter
       owner: saas_starter
-  # Le secret `saas-starter-db-app` est auto-créé par CNPG avec les clés :
-  # uri, host, port, dbname, user, password
-  # Il est monté comme POSTGRES_URL dans le Deployment.

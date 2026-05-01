@@ -6,8 +6,6 @@ metadata:
 spec:
   imageRepositoryRef:
     name: saas-starter
-  # Filtre les tags au format YYYYMMDD-HHmmss produits par le workflow GitHub Actions.
-  # Le tri alphabétique = tri chronologique → FluxCD choisit toujours la dernière image.
   filterTags:
     pattern: '^[0-9]{8}-[0-9]{6}$'
     extract: '$0'

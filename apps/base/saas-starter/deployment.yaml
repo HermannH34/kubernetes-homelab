@@ -41,13 +41,13 @@ spec:
                 name: saas-starter-env
           readinessProbe:
             httpGet:
-              path: /
+              path: /api/health
               port: 3000
             initialDelaySeconds: 15
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /
+              path: /api/health
               port: 3000
             initialDelaySeconds: 30
             periodSeconds: 30
@@ -58,5 +58,3 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-      imagePullSecrets:
-        - name: ghcr-pull-secret
