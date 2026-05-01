@@ -17,7 +17,7 @@ spec:
         - name: migrate
           # {"$imagepolicy": "flux-system:saas-starter"}
           image: ghcr.io/hermannh34/saas-starter:20260501-165944
-          command: ["node", "node_modules/.bin/drizzle-kit", "migrate"]
+          command: ["node_modules/.bin/drizzle-kit", "migrate"]
           env:
             - name: POSTGRES_URL
               valueFrom:
