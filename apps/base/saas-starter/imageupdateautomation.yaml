@@ -1,0 +1,29 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: saas-starter
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: |
+        chore: update saas-starter image
+
+        {{range .Updated.Images -}}
+        - {{.}}
+        {{end -}}
+    push:
+      branch: main
+  update:
+    path: ./apps
+    strategy: Setters
