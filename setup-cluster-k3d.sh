@@ -32,6 +32,7 @@ flux bootstrap github \
   --repository=kubernetes-homelab \
   --branch=HermannH34/image-version-question \
   --path=clusters/staging \
+  --components-extra=image-reflector-controller,image-automation-controller \
   --personal
 
 echo "⏳ Waiting for Flux deployment..."
