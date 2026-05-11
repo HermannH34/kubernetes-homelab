@@ -24,11 +24,11 @@ spec:
     - kind: Secret
       name: n8n-db-app
       valuesKey: password
-      targetPath: config.database.postgresdb.password
+      targetPath: secret.database.postgresdb.password
     - kind: Secret
       name: n8n-env
       valuesKey: N8N_ENCRYPTION_KEY
-      targetPath: config.encryptionKey
+      targetPath: secret.encryptionKey
   values:
     config:
       host: n8n.quickyrails.com
@@ -40,5 +40,10 @@ spec:
           port: 5432
           database: n8n
           user: n8n
+    secret:
+      database:
+        postgresdb:
+          password: ""
+      encryptionKey: ""
     persistence:
       enabled: false
