@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - database.yaml
   - app-secrets.yaml
+  - backup-secrets.yaml
+  - scheduled-backup.yaml

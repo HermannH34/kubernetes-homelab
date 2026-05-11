@@ -1,0 +1,29 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: n8n-db
+  namespace: n8n
+spec:
+  instances: 3
+  storage:
+    size: 5Gi
+    storageClass: local-path
+  bootstrap:
+    initdb:
+      database: n8n
+      owner: n8n
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://<bucket-name>/n8n
+      endpointURL: https://<account-id>.r2.cloudflarestorage.com
+      s3Credentials:
+        accessKeyId:
+          name: n8n-backup-s3
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: n8n-backup-s3
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
