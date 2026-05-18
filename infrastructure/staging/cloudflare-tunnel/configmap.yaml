@@ -11,7 +11,7 @@ data:
 
     ingress:
     - hostname: grafana.quickyrails.com
-      service: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local:80
+      service: http://grafana.monitoring.svc.cluster.local:80
     - hostname: n8n.quickyrails.com
       service: http://n8n.n8n.svc.cluster.local:5678
     - hostname: saas-starter.quickyrails.com
