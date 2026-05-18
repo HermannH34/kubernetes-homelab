@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: saas-starter
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: saas-starter
+  filterTags:
+    pattern: '^[0-9]{8}-[0-9]{6}$'
+    extract: '$0'
+  policy:
+    alphabetical:
+      order: asc

@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: saas-starter
+  namespace: flux-system
+spec:
+  image: ghcr.io/hermannh34/saas-starter
+  interval: 1m
