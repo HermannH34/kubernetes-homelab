@@ -11,3 +11,5 @@ resources:
   - helmrelease-node-exporter.yaml
   - helmrelease-kube-state-metrics.yaml
   - grafana-storage.yaml
+  - dashboards/k8s-views-global.yaml
+  - dashboards/k8s-views-pods.yaml
