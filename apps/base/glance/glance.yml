@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+pages:
+  - name: Home
+    columns:
+      - size: full
+        widgets:
+          - type: markets
+            title: Marchés
+            markets:
+              - symbol: BTC-USD
+                name: Bitcoin
+              - symbol: ^MSCI
+                name: MSCI World
+              - symbol: ^GSPC
+                name: S&P 500
+
+      - size: full
+        widgets:
+          - type: monitor
+            title: Mes Services
+            sites:
+              - name: Grafana
+                url: https://grafana.quickyrails.com
+              - name: SaaS Starter
+                url: https://saas-starter.quickyrails.com
