@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo-runner
+  namespace: forgejo
+  labels:
+    app: forgejo-runner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: forgejo-runner
+  template:
+    metadata:
+      labels:
+        app: forgejo-runner
+    spec:
+      containers:
+        - name: runner
+          image: code.forgejo.org/forgejo/runner:15.0.2
+          command: ["forgejo-runner", "daemon"]
+          env:
+            - name: FORGEJO_INSTANCE_URL
+              value: "http://forgejo.forgejo.svc.cluster.local:3000"
+            - name: RUNNER_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: forgejo-runner-secret
+                  key: runnerToken
+            - name: RUNNER_NAME
+              value: "k8s-runner-1"
+            - name: RUNNER_CAPACITY
+              value: "1"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

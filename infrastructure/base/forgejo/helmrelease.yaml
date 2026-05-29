@@ -1,0 +1,67 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo
+  namespace: forgejo
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: forgejo
+      version: ">=17.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: forgejo
+      interval: 12h
+  valuesFrom:
+    - kind: Secret
+      name: forgejo-secrets
+      valuesKey: adminPassword
+      targetPath: adminPassword
+    - kind: Secret
+      name: forgejo-secrets
+      valuesKey: jwtSecret
+      targetPath: config.security.SECRET_KEY
+  values:
+    image:
+      rootless: true
+    replicaCount: 1
+    service:
+      http:
+        port: 3000
+    persistence:
+      enabled: true
+      size: 5Gi
+      storageClass: local-path
+    database:
+      builtIn:
+        postgresql:
+          enabled: false
+      external:
+        enabled: true
+        host: forgejo-db-rw.forgejo.svc.cluster.local
+        port: 5432
+        database: forgejo
+        username: forgejo
+        existingSecret: forgejo-db-app
+        existingSecretKey: uri
+    ingress:
+      enabled: false
+    metrics:
+      enabled: true
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3000"
+        prometheus.io/path: "/metrics"
+    actions:
+      enabled: true
+    config:
+      APP_NAME: "Forgejo - Homelab"
+      RUN_MODE: prod
+      server:
+        ROOT_URL: "https://forgejo.quickyrails.com"
+        DOMAIN: "forgejo.quickyrails.com"
+      security:
+        PASSWORD_HASH_ALGO: pbkdf2
+      repository:
+        ROOT: "/var/lib/forgejo/git"

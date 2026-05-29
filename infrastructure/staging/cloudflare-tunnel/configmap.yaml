@@ -14,5 +14,7 @@ data:
       service: http://grafana.monitoring.svc.cluster.local:80
     - hostname: saas-starter.quickyrails.com
       service: http://saas-starter.saas-starter.svc.cluster.local:3000
+    - hostname: forgejo.quickyrails.com
+      service: http://forgejo.forgejo.svc.cluster.local:3000
     - service: http_status:404
 
