@@ -24,9 +24,15 @@ spec:
           envFrom:
             - secretRef:
                 name: pgadmin-env
+          env:
+            - name: PGADMIN_SERVER_JSON_FILE
+              value: /etc/pgadmin-servers/servers.json
           volumeMounts:
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
+            - name: pgadmin-servers
+              mountPath: /etc/pgadmin-servers
+              readOnly: true
           readinessProbe:
             httpGet:
               path: /login
@@ -50,3 +56,6 @@ spec:
         - name: pgadmin-data
           persistentVolumeClaim:
             claimName: pgadmin-data
+        - name: pgadmin-servers
+          secret:
+            secretName: pgadmin-servers

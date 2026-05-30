@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: pgadmin-servers
+    namespace: pgadmin
+type: Opaque
+stringData:
+    servers.json: ENC[AES256_GCM,data:YIEQfemsqD4zvmIXJpHdmzAzdYlKoemNniWj3Kv/TX5dQVAbu51jMdjQ/lcXLplCKDXrJG2gPoqOE1i7u/HuWge8/jtAif2JLuvtmAfd3Z365/Q5KQkcJb6ppdNE/anRN9xAXxxfZS9IOmCGsYWSlmNPjpOH8hZYUQvsHyldqI8YIXgPmGfsxn+s75gGpIKzM95yXmJQtDjgWO/vNVpJ525tv8NJDYHS82XVG1oSDjZgJzL9DvTVWIN/mMC60IRK6CTCZ7e3P3BqvJGamo/HS08uf9Utfri/EieBGOAgo2rtYZ+MKdtqJgcfN/5z0Q7JQJTDVBhfAFS2Csy/tMoZ/vl4s/3gwGIrfS3CpLZSW1Wq5z0C7nNXxcjnV/cDuqg0FfB6zPjQOHM9JyUf5saU1D+Ax1bBxTmsooU/pLqvLyBP7mgById6FLAMXY6RPZmAZl+Klus8Bprb+Kpcv8zxBw0ORw==,iv:9XiXkms1Q+Y7o+fcy63iZHdp+KSw0XK8QlULP8jCTNw=,tag:OQrlFPyn77hzQipeq2s9Lg==,type:str]
+sops:
+    age:
+        - recipient: age1nx88s3q0e02zhyycd9q4lwxqts9e6cenrvlxfp7ka2ghaxzwa5hqhex8h6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBFNm40dDZaeDdQRXlKRVk3
+            OGMxNGcrNlNQZTB1eExPbSt1ZWhpQ1ZtMWpzCmZyT2xJNEsvekc0bFBuRXdqT2ll
+            ZDNVblB5c3c4ZEVkR2tKZ0xnelUvQkUKLS0tIEZHYlJObG42cUFCWXE2SGd5QWdY
+            SjNselNickcyZGd4NmR5ZGIyaTBiR0UKtVntUQrS2NVoOgjkjZHWU/TJ47thl8f8
+            VJkrbUYj1enRxZooYR8JX3wAoo0uU2mztJzalOMuKUBN454uPJyVsQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-05-30T13:29:53Z"
+    mac: ENC[AES256_GCM,data:4CiFz9Cz0Prco1gmhILcpk6sDK3AVEhMy40E5wjzQ/SI9ttpHNUpKwdSQoatbXa6M23Wjbgp5fPtUSqwiWAMU2hPjfIL+UuIAwRCEwPnMzaz7/APAa7hD/e5ZvXgpVg9HpCyf4smEFQBiElRJ2hNXg0jDNpMAakLJCd+YnPH+ok=,iv:qupfh9ncl5Acfkx49+l9Qi1vBgXWAgaO7TX3X8mp6mw=,tag:frLTMkfNpkywI3JYR5o2BQ==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0
