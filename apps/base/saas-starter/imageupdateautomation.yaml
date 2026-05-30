@@ -16,7 +16,7 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-      messageTemplate: "chore(saas-starter): update image to {{range .UpdatedImages}}{{.}}{{end}}"
+      messageTemplate: "chore(saas-starter): bump image tag"
     push:
       branch: main
   update:
