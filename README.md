@@ -20,6 +20,8 @@
 [![Traefik](https://img.shields.io/badge/Traefik-24A1C1?style=for-the-badge&logo=traefikproxy&logoColor=white)](https://traefik.io/)
 [![GitOps](https://img.shields.io/badge/GitOps-100%25-success?style=for-the-badge)](https://www.gitops.tech/)
 
+[![Velero](https://img.shields.io/badge/Velero-5E81AC?style=for-the-badge&logo=velero&logoColor=white)](https://velero.io/)
+
 ---
 
 **A declarative, semi-production Kubernetes cluster managed entirely through GitOps principles**
@@ -81,6 +83,12 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
 |------------|---------|------|
 | ![Renovate](https://img.shields.io/badge/Renovate-1A1F6C?style=flat-square&logo=renovatebot&logoColor=white) **Renovate** | Dependency | Automated PRs for keeping dependencies update |
 
+### Backup & Recovery
+
+| Technology | Purpose | Why? |
+|------------|---------|------|
+| ![Velero](https://img.shields.io/badge/Velero-5E81AC?style=flat-square&logo=velero&logoColor=white) **Velero** | Backup & Restore | Cluster-wide backup with Cloudflare R2 storage |
+
 
 ---
 
@@ -109,10 +117,12 @@ kubernetes-homelab/
 ├── 🔧 infrastructure/              # Platform services
 │   ├── base/                       # Base manifests
 │   │   ├── cloudflare-tunnel/      # Secure external access
-│   │   └── renovate/               # Automated dependency updates
+│   │   ├── renovate/               # Automated dependency updates
+│   │   └── velero/                 # Cluster backup & recovery
 │   └── staging/                    # Environment secrets & configs
 │       ├── cloudflare-tunnel/
-│       └── renovate/
+│       ├── renovate/
+│       └── velero/
 │
 ├── 📊 monitoring/                  # Observability stack
 │   ├── base/kube-prometheus-stack/ # Prometheus + Grafana
@@ -153,7 +163,7 @@ kubernetes-homelab/
 
 ### 🚀 Short-term Goals 
 - [ ] Implement blue/green deployment
-- [ ] Implement automated Velero Storage and Backup
+- [x] Implement automated Velero Storage and Backup
 - [ ] Infrastructure as Code for the entire setup with Terraform
 
 ### 🏔️ Advanced Goals (6-12 months)
