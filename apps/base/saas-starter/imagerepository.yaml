@@ -6,3 +6,5 @@ metadata:
 spec:
   image: ghcr.io/hermannh34/saas-starter
   interval: 1m
+  secretRef:
+    name: ghcr-auth
