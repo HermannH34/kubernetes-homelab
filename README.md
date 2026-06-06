@@ -20,7 +20,7 @@
 [![Traefik](https://img.shields.io/badge/Traefik-24A1C1?style=for-the-badge&logo=traefikproxy&logoColor=white)](https://traefik.io/)
 [![GitOps](https://img.shields.io/badge/GitOps-100%25-success?style=for-the-badge)](https://www.gitops.tech/)
 
-[![Velero](https://img.shields.io/badge/Velero-5E81AC?style=for-the-badge&logo=velero&logoColor=white)](https://velero.io/)
+[![Longhorn](https://img.shields.io/badge/Longhorn-326CE5?style=for-the-badge&logo=longhorn&logoColor=white)](https://longhorn.io/)
 
 ---
 
@@ -87,7 +87,7 @@ This homelab started with **K3d** for local development, then moved to **VPS ser
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![Velero](https://img.shields.io/badge/Velero-5E81AC?style=flat-square&logo=velero&logoColor=white) **Velero** | Backup & Restore | Cluster-wide backup with Cloudflare R2 storage |
+| ![Longhorn](https://img.shields.io/badge/Longhorn-326CE5?style=flat-square&logo=longhorn&logoColor=white) **Longhorn** | Storage & Backup | Distributed block storage with built-in snapshots and backups |
 
 
 ---
@@ -118,11 +118,11 @@ kubernetes-homelab/
 │   ├── base/                       # Base manifests
 │   │   ├── cloudflare-tunnel/      # Secure external access
 │   │   ├── renovate/               # Automated dependency updates
-│   │   └── velero/                 # Cluster backup & recovery
+│   │   └── longhorn/               # Distributed block storage
 │   └── staging/                    # Environment secrets & configs
 │       ├── cloudflare-tunnel/
 │       ├── renovate/
-│       └── velero/
+│       └── longhorn/
 │
 ├── 📊 monitoring/                  # Observability stack
 │   ├── base/kube-prometheus-stack/ # Prometheus + Grafana
@@ -163,7 +163,7 @@ kubernetes-homelab/
 
 ### 🚀 Short-term Goals 
 - [ ] Implement blue/green deployment
-- [x] Implement automated Velero Storage and Backup
+- [x] Migrate from Velero to Longhorn for storage and backups
 - [ ] Infrastructure as Code for the entire setup with Terraform
 
 ### 🏔️ Advanced Goals (6-12 months)
