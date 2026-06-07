@@ -16,8 +16,8 @@ spec:
       interval: 12h
   valuesFrom:
     - kind: Secret
-      name: forgejo-env
-      valuesKey: db-password
+      name: forgejo-db-app
+      valuesKey: password
       targetPath: gitea.config.database.PASSWD
     - kind: Secret
       name: forgejo-env
