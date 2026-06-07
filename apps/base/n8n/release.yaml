@@ -30,6 +30,7 @@ spec:
       valuesKey: N8N_ENCRYPTION_KEY
       targetPath: secret.encryptionKey
   values:
+    replicaCount: 3
     config:
       host: n8n.quickyrails.com
       protocol: https
