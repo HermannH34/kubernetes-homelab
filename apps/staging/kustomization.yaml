@@ -4,4 +4,4 @@ resources:
   - ../base
   - ./saas-starter
   - ./pgadmin
-  - ./forgejo
+  #- ./forgejo
