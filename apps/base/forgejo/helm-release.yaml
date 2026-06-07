@@ -40,7 +40,7 @@ spec:
       valuesKey: lfs-jwt-secret
       targetPath: gitea.config.lfs.JWT_SECRET
   values:
-    replicaCount: 3
+    replicaCount: 1
 
     image:
       tag: 15.0.2
