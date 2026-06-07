@@ -28,7 +28,7 @@ spec:
     - kind: Secret
       name: n8n-env
       valuesKey: N8N_ENCRYPTION_KEY
-      targetPath: secret.encryptionKey
+      targetPath: config.n8n.encryption_key
   values:
     replicaCount: 3
     config:
