@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ./saas-starter
   - ./pgadmin
-  - ./forgejo
+  - ./n8n
