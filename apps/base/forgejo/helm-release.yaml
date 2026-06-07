@@ -95,11 +95,7 @@ spec:
           ENABLED: true
 
         mailer:
-          ENABLED: true
-          PROTOCOL: smtps
-          SMTP_ADDR: smtp.gmail.com
-          SMTP_PORT: 465
-          FROM: ""
+          ENABLED: false
 
         service:
           DISABLE_REGISTRATION: true
