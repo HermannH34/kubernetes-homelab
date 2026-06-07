@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: n8n
-      version: "0.23.0"
+      version: "2.0.1"
       sourceRef:
         kind: HelmRepository
         name: n8n
@@ -24,27 +24,29 @@ spec:
     - kind: Secret
       name: n8n-db-app
       valuesKey: password
-      targetPath: secret.database.postgresdb.password
-    - kind: Secret
-      name: n8n-env
-      valuesKey: N8N_ENCRYPTION_KEY
-      targetPath: config.n8n.encryption_key
+      targetPath: main.secret.database.postgresdb.password
   values:
-    replicaCount: 3
-    config:
-      host: n8n.quickyrails.com
-      protocol: https
-      database:
-        type: postgresdb
-        postgresdb:
-          host: n8n-db-rw.n8n.svc
-          port: 5432
-          database: n8n
-          user: n8n
-    secret:
-      database:
-        postgresdb:
-          password: ""
-      encryptionKey: ""
-    persistence:
-      enabled: false
+    main:
+      replicaCount: 3
+      config:
+        host: n8n.quickyrails.com
+        protocol: https
+        database:
+          type: postgresdb
+          postgresdb:
+            host: n8n-db-rw.n8n.svc
+            port: 5432
+            database: n8n
+            user: n8n
+      secret:
+        database:
+          postgresdb:
+            password: ""
+      persistence:
+        enabled: false
+      extraEnv:
+        N8N_ENCRYPTION_KEY:
+          valueFrom:
+            secretKeyRef:
+              name: n8n-env
+              key: N8N_ENCRYPTION_KEY
