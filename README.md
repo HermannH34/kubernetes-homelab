@@ -1,175 +1,200 @@
-<div align="center">
+# Kubernetes GitOps Monorepo
 
-# 🏠 Kubernetes Homelab
-*Implementing production practices in a learning environment*
+## Overview
 
-> [!WARNING]
-> **⚠️ Work in Progress**: This homelab is under active development. Configurations may change frequently and some features may be incomplete or experimental.
+This repository acts as the **Single Source of Truth** for my Kubernetes infrastructure. It utilises **GitOps** principles to manage the cluster state, infrastructure, and application lifecycles.
 
-[![K3s](https://img.shields.io/badge/k3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=black)](https://k3s.io/)
-[![Kubernetes](https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
-[![FluxCD](https://img.shields.io/badge/FluxCD-5468FF?style=for-the-badge&logo=flux&logoColor=white)](https://fluxcd.io/)
-[![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)](https://helm.sh/)
+The goal of this project is to demonstrate a production-ready approach to managing Kubernetes clusters using **Infrastructure as Code (IaC)**.
 
-[![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)](https://prometheus.io/)
-[![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)](https://grafana.com/)
-[![SOPS](https://img.shields.io/badge/SOPS-000000?style=for-the-badge&logo=mozilla&logoColor=white)](https://github.com/getsops/sops)
-[![Renovate](https://img.shields.io/badge/Renovate-1A1F6C?style=for-the-badge&logo=renovatebot&logoColor=white)](https://www.mend.io/renovate/)
-
-[![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://www.cloudflare.com/)
-[![Traefik](https://img.shields.io/badge/Traefik-24A1C1?style=for-the-badge&logo=traefikproxy&logoColor=white)](https://traefik.io/)
-[![GitOps](https://img.shields.io/badge/GitOps-100%25-success?style=for-the-badge)](https://www.gitops.tech/)
-
-[![Longhorn](https://img.shields.io/badge/Longhorn-326CE5?style=for-the-badge&logo=longhorn&logoColor=white)](https://longhorn.io/)
-
+The project is aligned with [The Twelve-Factor App](https://12factor.net/) methodology.
 ---
 
-**A declarative, semi-production Kubernetes cluster managed entirely through GitOps principles**
 
+## Core Technology Stack
 
-</div>
+This project leverages the following technologies to ensure scalability, security, and automation:
 
----
-
-## 🎯 What is this?
-
-This is a **Kubernetes homelab cluster** implementing production-grade tools and 
-practices in a pre-production environment. Managed with industry-standard DevOps 
-practices, every configuration is version-controlled, every secret is encrypted, 
-and every deployment is automated.
-
-**The Goal?** To demonstrate hands-on expertise with cloud-native technologies while self-hosting useful applications and learning by doing.
-
-## 🛤️ The Journey
-
-This homelab started with **K3d** for local development, then moved to **VPS servers** (4-core, 8GB RAM) for a more realistic setup. Currently hosted in the **bare metal Cloud** while I'm relocating to Canada 🇨🇦, but the plan is to eventually run it on **Raspberry Pi hardware** once settled—because there's something special about managing physical infrastructure.
-
-
----
-
-## 🚀 The Tech Stack
-
-### Core Infrastructure
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![K3s](https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black) **K3s** | Lightweight Kubernetes | Production-ready Kubernetes that runs on minimal resources |
-| ![FluxCD](https://img.shields.io/badge/FluxCD-5468FF?style=flat-square&logo=flux&logoColor=white) **FluxCD** | GitOps Operator | Automatically syncs cluster state with Git repository |
-| ![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white) **Helm** | Package Manager | Standardized application deployments with templating |
+| ![K3s](https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black) | Lightweight Kubernetes | Production-ready Kubernetes that runs on minimal resources |
+| ![FluxCD](https://img.shields.io/badge/FluxCD-5468FF?style=flat-square&logo=flux&logoColor=white)  | GitOps Operator | Automatically syncs cluster state with Git repository |
+| ![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white) | Package Manager | Standardized application deployments with templating |
 
 ### Security & Secrets
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![SOPS](https://img.shields.io/badge/SOPS-000000?style=flat-square&logo=mozilla&logoColor=white) **SOPS** | Secret Encryption | Encrypt secrets at rest in Git |
+| ![SOPS](https://img.shields.io/badge/SOPS-000000?style=flat-square&logo=mozilla&logoColor=white) | Secret Encryption | Encrypt secrets at rest in Git |
 
 ### Networking & Access
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![Traefik](https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white) **Traefik** | Ingress Controller | Dynamic routing and automatic SSL |
-| ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white) **Cloudflare Tunnels** | Secure External | Zero-trust network access without opening ports |
+| ![Traefik](https://img.shields.io/badge/Traefik-24A1C1?style=flat-square&logo=traefikproxy&logoColor=white) | Ingress Controller | Dynamic routing and automatic SSL |
+| ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white) | Secure External | Zero-trust network access without opening ports |
 
 ### Observability
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) **Prometheus** | Metrics Collection | Industry-standard monitoring system |
-| ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) **Grafana** | Visualization | Beautiful dashboards for cluster metrics |
+| ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) | Metrics Collection | Industry-standard monitoring system |
+| ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) | Visualization | Beautiful dashboards for cluster metrics |
 
 ### Automatic upgrades
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![Renovate](https://img.shields.io/badge/Renovate-1A1F6C?style=flat-square&logo=renovatebot&logoColor=white) **Renovate** | Dependency | Automated PRs for keeping dependencies update |
+| ![Renovate](https://img.shields.io/badge/Renovate-1A1F6C?style=flat-square&logo=renovatebot&logoColor=white)| Dependency | Automated PRs for keeping dependencies update |
 
-### Backup & Recovery
+### Database
 
 | Technology | Purpose | Why? |
 |------------|---------|------|
-| ![Longhorn](https://img.shields.io/badge/Longhorn-326CE5?style=flat-square&logo=longhorn&logoColor=white) **Longhorn** | Storage & Backup | Distributed block storage with built-in snapshots and backups |
+| ![CloudNativePG](https://img.shields.io/badge/CloudNativePG-326CE5?style=flat-square&logo=postgresql&logoColor=white) | Database + Backup | PostgreSQL backup via **Barman** to S3 object store with periodic automatic snapshots |
 
 
 ---
 
-## 📁 Repository Structure
+## Architecture & Workflow
 
+Changes to the infrastructure are automatically reconciled by Flux every 10 minutes (configured in clusters/staging/flux-system/gotk-sync.yaml) by synchronising with the Git repository.
+
+```mermaid
+graph LR
+    A[User] -- Commit --> B(GitHub Repository);
+    D[Flux Controller] -- Reconciliation --> C(Cluster Resources);
+    B -- Read Manifests --> D;
+    B -- Check Image version --> G[Renovate Bot] ;
+    G[Renovate Bot] -- Creates Patch PR --> B;
 ```
-kubernetes-homelab/
-│
-├── 📱 apps/                        # Application definitions
-│   ├── base/                       # Base manifests (reusable)
-│   │   ├── ghostfolio/             # Investment portfolio tracker
-│   │   ├── homepage/               # Dashboard application
-│   │   └── linkding/               # Bookmark manager
-│   └── staging/                    # Environment-specific overlays & secrets
-│       ├── ghostfolio/
-│       ├── homepage/
-│       └── linkding/
-│
-├── 🎛️ clusters/                    # Cluster configurations
+## Repository Structure
+
+The repository is structured in conformity with the [monorepo](https://fluxcd.io/flux/guides/repository-structure/) methodology.
+```
+├── apps/
+│   ├── base/
+│   │   ├── n8n/
+│   │   ├── pgadmin/
+│   │   └── saas-starter/
 │   └── staging/
-│       ├── flux-system/            # FluxCD bootstrap
-│       ├── apps.yaml               # App reconciliation
-│       ├── infrastructure.yaml     # Infrastructure reconciliation
-│       └── monitoring.yaml         # Monitoring reconciliation
-│
-├── 🔧 infrastructure/              # Platform services
-│   ├── base/                       # Base manifests
-│   │   ├── cloudflare-tunnel/      # Secure external access
-│   │   ├── renovate/               # Automated dependency updates
-│   │   └── longhorn/               # Distributed block storage
-│   └── staging/                    # Environment secrets & configs
+│       ├── n8n/
+│       ├── pgadmin/
+│       └── saas-starter/
+├── clusters/
+│   └── staging/
+│       ├── flux-system/
+│       ├── apps.yaml
+│       ├── infrastructure.yaml
+│       ├── monitoring.yaml
+│       └── operator.yaml
+├── infrastructure/
+│   ├── base/
+│   │   ├── cloudflare-tunnel/
+│   │   ├── flux-image-automation/
+│   │   └── renovate/
+│   └── staging/
 │       ├── cloudflare-tunnel/
-│       ├── renovate/
-│       └── longhorn/
-│
-├── 📊 monitoring/                  # Observability stack
-│   ├── base/kube-prometheus-stack/ # Prometheus + Grafana
-│   └── staging/kube-prometheus-stack/
-│
-├── 🔐 age.agekey                   # Age encryption key
-├── 🔒 .sops.yaml                   # SOPS configuration
-└── 📝 README.md                    # You are here
+│       ├── flux-image-automation/
+│       └── renovate/
+├── monitoring/
+│   ├── base/
+│   │   └── kube-prometheus-stack/
+│   └── staging/
+│       └── kube-prometheus-stack/
+├── operator/
+│   ├── base/
+│   │   └── database/
+│   └── staging/
+│       └── database/
+├── .sops.yaml
+├── cluster-health.sh
+├── renovate.json
+└── README.md                                    # Matches all the YAML files in the repository. 
+```
+## Secrets management with [SOPS](https://fluxcd.io/flux/guides/mozilla-sops/)
+
+#### Encrypting secrets using age
+
+```bash
+brew install sops age
+
+# Creates the public and private keys
+# The private key should be stored separately in case
+# the cluster has to be rebuilt in the future.
+age-keygen -o age.agekey
+
+# Export the pubkey into a variable
+export AGE_PUBLIC=<public_key>
+
+# Encrypt the yaml definition of the secret with the pubkey
+sops --age=$AGE_PUBLIC \
+--encrypt --encrypted-regex '^(data|stringData)$' --in-place secret.yaml
+
+# Add the **private key** to the cluster.
+# With this the encrypted secrets are decrypted inside the cluster
+cat age.agekey |
+kubectl create secret generic sops-age \
+--namespace=flux-system \
+--from-file=age.agekey=/dev/stdin
 ```
 
----
+## Flux
 
-## 📱 Deployed Applications
+#### Installing Flux
 
-### 💰 Ghostfolio
-**Open-source wealth management and portfolio tracker**
+Flux needs to be installed on the cluster to facilitate the GitOps reconciliation loop.
 
-- Track stocks, ETFs, cryptocurrencies, and more
-- Performance analytics and dividends tracking
-- Multi-currency support
-- PostgreSQL + Redis backend for reliability
+```bash
+export GITHUB_TOKEN=<your-token>
+export GITHUB_USER=<your-username>
 
-### 🔖 Linkding
-**Minimalist, fast, and self-hosted bookmark manager**
+# Install Flux CLI
+curl -s https://fluxcd.io/install.sh | sudo bash
 
-- Full-text search across bookmarks
-- Tag-based organization
-- Archive integration
-- Persistent storage with backups
+# Check if the cluster meets the requirements
+# Kubernetes 1.28.0.0 or newer is required
+flux check --pre
 
+flux bootstrap github \
+  --owner=$GITHUB_USER \
+  --repository=<repo_name> \
+  --branch=main \
+  --path=./clusters/staging \
+  --personal
+```
 
----
+#### How does Flux deploy the application?
 
+1. Flux reads the `clusters/staging` directory
+2. Finds and applies our `apps.yaml` file
+3. Looks at the `apps/staging` directory
+4. Finds the applications kustomization file
+5. Applies the resources we defined in the base configuration
 
-## 🎓 What's Next?
+## Automatic Updates
 
-### Planned Improvements
+[Renovate](https://github.com/renovatebot/renovate) is an automated dependency update tool.
+The goal of its usage in the current project is to have a system in place running 24/7 which periodically checks for new image versions and creates a GitHub pull request when an update is available. The user can decide to update the given image by approving the PR.
 
-### 🚀 Short-term Goals 
-- [ ] Implement blue/green deployment
-- [x] Migrate from Velero to Longhorn for storage and backups
-- [ ] Infrastructure as Code for the entire setup with Terraform
+Flux also has a [solution](https://fluxcd.io/flux/components/image/imageupdateautomations/) for automatic image updates. For this project Renovate was chosen because it creates PRs with the changelog, whereas Flux auto image updater works in the background without human-in-the-loop by default.
 
-### 🏔️ Advanced Goals (6-12 months)
-- [ ] Migrate FluxCD to ArgoCD
-- [ ]  Deploy self hosted open source runners
-- [ ] Setup CloudNativePG
-- [ ] **AI model**: Deploy and manage AI models on kubernetes with cheap GPU hardware
+Requirements:
+- A GitHub token with **repo** permission
 
+### Create and encrypt a secret containing the GitHub token
 
+```bash
+kubectl create secret generic renovate-container-env \
+  --from-literal=RENOVATE_TOKEN=<token> \
+  --dry-run=client \
+  -o yaml > renovate-container-env.yaml
+
+sops --age=$AGE_PUBLIC \
+  --encrypt --encrypted-regex '^(data|stringData)$' \
+  --in-place renovate-container-env.yaml
+```
+
+### Manifest files
+
+The YAML files are placed in the `infrastructure/base/renovate` directory.
