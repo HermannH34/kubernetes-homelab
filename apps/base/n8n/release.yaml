@@ -45,6 +45,10 @@ spec:
       persistence:
         enabled: false
       extraEnv:
+        WEBHOOK_URL:
+          value: "https://n8n.quickyrails.com/"
+        N8N_EDITOR_BASE_URL:
+          value: "https://n8n.quickyrails.com/"
         N8N_ENCRYPTION_KEY:
           valueFrom:
             secretKeyRef:
