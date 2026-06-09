@@ -14,5 +14,6 @@ data:
       service: http://grafana.monitoring.svc.cluster.local:80
     - hostname: saas-starter.quickyrails.com
       service: http://saas-starter.saas-starter.svc.cluster.local:3000
+     - hostname: n8n.quickyrails.com
+      service: http://n8n.n8n.svc.cluster.local:80
     - service: http_status:404
-
