@@ -12,3 +12,18 @@ spec:
     initdb:
       database: saas
       owner: saas
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://homelab-backup/saas-starter
+      endpointURL: https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com
+      s3Credentials:
+        accessKeyId:
+          name: saas-starter-backup-s3
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: saas-starter-backup-s3
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: gzip
+      data:
+        compression: gzip

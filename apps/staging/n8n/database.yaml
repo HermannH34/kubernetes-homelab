@@ -14,8 +14,8 @@ spec:
       owner: n8n
   backup:
     barmanObjectStore:
-      destinationPath: s3://<bucket-name>/n8n
-      endpointURL: https://<account-id>.r2.cloudflarestorage.com
+      destinationPath: s3://homelab-backup/n8n
+      endpointURL: https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com
       s3Credentials:
         accessKeyId:
           name: n8n-backup-s3
