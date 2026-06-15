@@ -24,7 +24,7 @@ spec:
         - name: ghcr-registry
       initContainers:
         - name: migrate
-          image: ghcr.io/hermannh34/saas-starter:20260615-202824 # {"$imagepolicy": "flux-system:saas-starter"}
+          image: ghcr.io/hermannh34/saas-starter:20260605-202330 # {"$imagepolicy": "flux-system:saas-starter"}
           command: ["npx", "drizzle-kit", "migrate"]
           env:
             - name: POSTGRES_URL
@@ -34,7 +34,7 @@ spec:
                   key: uri
       containers:
         - name: saas-starter
-          image: ghcr.io/hermannh34/saas-starter:20260615-202824 # {"$imagepolicy": "flux-system:saas-starter"}
+          image: ghcr.io/hermannh34/saas-starter:20260605-202330 # {"$imagepolicy": "flux-system:saas-starter"}
           ports:
             - containerPort: 3000
               name: http
