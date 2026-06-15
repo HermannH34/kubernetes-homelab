@@ -7,7 +7,7 @@ spec:
   instances: 3
   storage:
     size: 1Gi
-    storageClass: longhorn
+    storageClass: local-path
   bootstrap:
     initdb:
       database: saas
