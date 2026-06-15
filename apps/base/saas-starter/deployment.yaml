@@ -4,7 +4,7 @@ metadata:
   name: saas-starter
   namespace: saas-starter
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: Recreate
   selector:
