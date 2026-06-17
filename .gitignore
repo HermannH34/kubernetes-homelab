@@ -12,3 +12,4 @@ age.agekey
 *.swp
 *.swo
 *~
+.gstack/
