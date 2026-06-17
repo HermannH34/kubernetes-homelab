@@ -82,6 +82,9 @@ spec:
           SSH_PORT: 22
           SSH_LISTEN_PORT: 2222
 
+        i18n:
+          LANGS: "en-US"
+          NAMES: "English"
 
         database:
           DB_TYPE: postgres
