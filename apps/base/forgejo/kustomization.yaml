@@ -5,4 +5,4 @@ resources:
   - helm-repository.yaml
   - helm-release.yaml
   - database.yaml
-  - network-policy.yaml
+  #- network-policy.yaml
