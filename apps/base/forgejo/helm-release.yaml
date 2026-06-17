@@ -83,7 +83,7 @@ spec:
           SSH_LISTEN_PORT: 2222
 
         i18n:
-          DEFAULT_LANG: en-US
+          LANGS: "en-US"
         database:
           DB_TYPE: postgres
           HOST: forgejo-db-rw.forgejo.svc.cluster.local:5432
