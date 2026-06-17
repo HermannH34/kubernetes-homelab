@@ -10,8 +10,8 @@ data:
     no-autoupdate: true
 
     ingress:
-    - hostname: grafana.quickyrails.com
-      service: http://grafana.monitoring.svc.cluster.local:80
+    - hostname: forgejo.quickyrails.com
+      service: http://forgejo-http.forgejo.svc.cluster.local:3000
     - hostname: iterato.agency
       service: http://saas-starter.saas-starter.svc.cluster.local:3000
     - hostname: n8n.quickyrails.com
