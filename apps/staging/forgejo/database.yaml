@@ -1,0 +1,29 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: forgejo-db
+  namespace: forgejo
+spec:
+  instances: 3
+  storage:
+    size: 1Gi
+    storageClass: local-path
+  bootstrap:
+    initdb:
+      database: forgejo
+      owner: forgejo
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://homelab-backup/forgejo
+      endpointURL: https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com
+      s3Credentials:
+        accessKeyId:
+          name: forgejo-backup-s3
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: forgejo-backup-s3
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
