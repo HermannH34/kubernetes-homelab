@@ -4,7 +4,7 @@ metadata:
   name: saas-starter
   namespace: saas-starter
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
