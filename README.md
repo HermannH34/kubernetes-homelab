@@ -4,7 +4,22 @@
 
 This repository acts as the **Single Source of Truth** for my Kubernetes infrastructure. It utilises **GitOps** principles to manage the cluster state, infrastructure, and application lifecycles.
 
-The goal of this project is to demonstrate a production-ready approach to managing Kubernetes clusters using **Infrastructure as Code (IaC)**.
+
+I'm using Kubernetes to run my products on a cheap VPS. But not because it needs to scale - but because it's **super practical**.
+
+Whenever I hear people say "Kubernetes is overkill" **they always talk about it from a "scale" perspective**.
+
+*My reasons:* I want staging/sandbox + production environments, and I want a smooth deployment process.
+
+I push to a branch on GitHub, a pipeline starts, new code is deployed, old code is gracefully shut down, traffic is pointed over.
+
+**Like I'm used to with PaaS**.
+
+Kubernetes + Kustomize does this super well! **This would be hell to automate with just docker and various manual scripts...**
+
+But of course, you can overengineer just about anything and ramp up cost... That isn't specific to Kubernetes.
+
+Kubernetes can be just about as simple as you want it to. I think this is misunderstood
 
 The project is aligned with [The Twelve-Factor App](https://12factor.net/) methodology.
 ---
