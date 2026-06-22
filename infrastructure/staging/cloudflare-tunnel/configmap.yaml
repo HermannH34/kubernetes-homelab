@@ -12,8 +12,6 @@ data:
     ingress:
     - hostname: forgejo.quickyrails.com
       service: http://forgejo-http.forgejo.svc.cluster.local:3000
-    - hostname: iterato.agency
-      service: http://saas-starter.saas-starter.svc.cluster.local:3000
     - hostname: n8n.quickyrails.com
       service: http://n8n.n8n.svc.cluster.local:80
     - service: http_status:404
