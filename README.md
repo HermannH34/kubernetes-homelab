@@ -2,15 +2,23 @@
 
 ## Overview
 
-This repository is the **single source of truth** for my homelab — a self-hosted Kubernetes cluster managed entirely through **GitOps**.
+This repository acts as the **Single Source** of Truth for my Kubernetes infrastructure. It utilises **GitOps principles** to manage the cluster state, infrastructure, and application lifecycles.
 
-The core driver behind this project is simple: **reducing my dependency on third-party platforms**.
+I'm using Kubernetes to run my products on a cheap VPS. But not because it needs to scale — but because it's **super practical**.
 
-Today, a handful of companies control a massive share of our digital lives — managing our data, identities, and infrastructure under their own rules. Moving away from this model isn’t ideological for me; it’s practical. The fewer single points of failure I rely on, the more control I retain over my own work.
+Whenever I hear people say **"Kubernetes is overkill"** they always talk about it from a **"scale" perspective**.
 
-A concrete example of this is my transition away from GitHub. My source code now lives on **[Forgejo](https://forgejo.org)**, a self-hosted Git server running directly inside this cluster. This ensures my data and history remain entirely mine. The catalyst for this move was simple: in 2025, GitHub announced pricing changes for self-hosted Actions runners — the exact type of unpredictable platform risk you can't plan for. 
+**My reasons:** I want staging/sandbox + production environments, and I want a **smooth deployment process**.
 
-While I still mirror my repositories to GitHub to stay connected to the community, I am no longer dependent on it.
+I push to a branch on GitHub, a pipeline starts, **new code is deployed**, old code is gracefully shut down, traffic is pointed over.
+
+**Just like with a PaaS**.
+
+Kubernetes + Kustomize does this super well! **This would be hell to automate with just docker and various manual scripts....**
+
+But of course, you can **overengineer just about anything** and ramp up cost... That isn't specific to Kubernetes.
+
+Kubernetes can be just about **as simple as you want it to**. I think this is misunderstood.
 
 The project is aligned with [The Twelve-Factor App](https://12factor.net/) methodology.
 ---
@@ -80,13 +88,13 @@ The repository is structured in conformity with the [monorepo](https://fluxcd.io
 ```
 ├── apps/
 │   ├── base/
-│   │   ├── forgejo/
-│   │   ├── pgadmin/
-│   │   └── saas-starter/
+│   │   ├── 
+│   │   ├── 
+│   │   └── 
 │   └── staging/
-│       ├── forgejo/
-│       ├── pgadmin/
-│       └── saas-starter/
+│       ├──
+│       ├── 
+│       └── 
 ├── clusters/
 │   └── staging/
 │       ├── flux-system/
