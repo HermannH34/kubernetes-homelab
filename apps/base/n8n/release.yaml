@@ -51,6 +51,8 @@ spec:
           value: "https://n8n.quickyrails.com/"
         N8N_SECURE_COOKIE:
           value: "false"
+        N8N_PROXY_HOPS:
+          value: "1"
         N8N_ENCRYPTION_KEY:
           valueFrom:
             secretKeyRef:
