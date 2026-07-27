@@ -1,38 +1,31 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: forgejo-runner
   namespace: forgejo
-  labels:
-    app.kubernetes.io/name: forgejo-runner
-    app.kubernetes.io/component: runner
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: forgejo-runner
-      app.kubernetes.io/component: runner
-  template:
-    metadata:
-      labels:
-        app.kubernetes.io/name: forgejo-runner
-        app.kubernetes.io/component: runner
+  interval: 30m
+  chart:
     spec:
-      containers:
-        - name: runner
-          image: data.forgejo.org/forgejo/runner:12
-          command: ["forgejo-runner", "daemon", "--config", "/config/runner-config.yml"]
-          volumeMounts:
-            - name: config
-              mountPath: /config
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 500m
-              memory: 512Mi
-      volumes:
-        - name: config
-          secret:
-            secretName: forgejo-runner-config
+      chart: forgejo-runner
+      version: "0.7.x"
+      sourceRef:
+        kind: HelmRepository
+        name: forgejo-runner
+        namespace: forgejo
+      interval: 12h
+  values:
+    forgejo:
+      url: http://forgejo.forgejo.svc.cluster.local:3000
+      existingSecret: forgejo-runner-config
+      existingSecretKey: runner-config.yml
+
+    runner:
+      labels:
+        - ubuntu-latest:docker://ghcr.io/catthehacker/ubuntu:act-22.04
+        - docker:docker://data.forgejo.org/oci/alpine:3.20
+
+    container:
+      driver: kubernetes
+      kubernetes:
+        namespace: forgejo

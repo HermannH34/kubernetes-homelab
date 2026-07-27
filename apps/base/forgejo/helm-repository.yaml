@@ -7,3 +7,13 @@ spec:
   type: oci
   interval: 24h
   url: oci://code.forgejo.org/forgejo-helm
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: forgejo-runner
+  namespace: forgejo
+spec:
+  type: oci
+  interval: 24h
+  url: oci://codeberg.org/wrenix/helm-charts
