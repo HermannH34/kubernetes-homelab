@@ -58,15 +58,14 @@ spec:
   podSelector:
     matchLabels:
       app.kubernetes.io/name: forgejo
-      app.kubernetes.io/component: app
+      app.kubernetes.io/instance: forgejo
   policyTypes:
     - Ingress
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: forgejo
-              app.kubernetes.io/component: runner
+              app.kubernetes.io/name: forgejo-runner
       ports:
         - port: 3000
           protocol: TCP
