@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: forgejo-runner-config
+    namespace: forgejo
+type: Opaque
+stringData:
+    runner-config.yml: ENC[AES256_GCM,data:24m60O7undWX9wyKdGDj4Tr45uaphJO/iD8Sf68wZZxPdJpQIzALLDZudEpFPd7Au6agliKOEG+iyUfhb3wT2XlcnFzvFlwcqK3gFoAq88GFADJ56JRLWpZNvMzTehjz40c9M35xNNLM+744onye8XSROZO5fKHcHsLEWOHsDMQDPaAH55O/12VF60l0tyPrjEbDH4q1QP8suR6sdglvv/2bCmKB0hoyvwCbI/Dvb9LUuOGiaLLhC9L4qgJUWoLpk11Er3M3M9alYIdzkcn5OBrQDZktPIcvebHt6Kadrngul0u8jaIW+FLL8ZznOlKdYyI2fIJU8GLY0aOAKtn/yf7Ypsm4zxQ3DpCYxsKZ323R8OMKzYS8UFmODDh9fkrTsWM+HGUoZR/RqJJ6soeRN/7psvaYLIdJqAOwg4LTKnJmsg2gur103mmCnqcfK36Xc8fZyg1a2SrMZ+YnFQTbW5Oee/3GWjKW+WOsNApiVfWfGYmDuSfFwKMOyXe8Qpo=,iv:o3NlczXqKLgUCGk9jqpBeMl4yvaqn5FLVZGcPbkjjwA=,tag:yiuxwp+Xg7HloRlHEBQqfw==,type:str]
+sops:
+    age:
+        - recipient: age1nx88s3q0e02zhyycd9q4lwxqts9e6cenrvlxfp7ka2ghaxzwa5hqhex8h6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBOeUR6Ukxmc0tOY1o2amNi
+            b3J6azF3WUhURVh6Z3E1SE9lRnB1N05pMjJRCmd2ajAxWnB2Q1pIN3dOTHZadTly
+            cTZ4WjVDYmlkdmc3b1RUUGcwa1I3ZWMKLS0tIDZ6Nk5ETnZ1TU9yM1lXRlFwVVY2
+            NnVMQWxYckJYamFubzRqNHBrQ0dBZk0K5xBHtNvXBHdAWDcY+0McwTqP4Is5aOIz
+            XFbiTIyCjN82ZLUoybvCFXudDyAFRjKi3x+qY/mOONvrisIz/p2n2A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-07-27T20:01:52Z"
+    mac: ENC[AES256_GCM,data:rhaTSk3KaQacxcJd/EQdQ9suxx5nf1QyjaXzYdD6WFQOzznYXeDM9hCUrHM9KUPDJtJ+8usbKSh22+bGJ6x79+1W8CbR9nkZo4SkczD23zkBB7U9mYeOhp7Q6i3X6himfSKltAbSD7HQ2/L1LiBFW+Gr7tnxfv8E3OH80XSfWpA=,iv:4ern+AQ9u6PS6tdWOyNSld8//TwQbAYPrN5CBZD3nNQ=,tag:YsZ9Ld4IXmuLTlhgynt3Sw==,type:str]
+    encrypted_regex: ^(data|stringData)$
+    version: 3.11.0
