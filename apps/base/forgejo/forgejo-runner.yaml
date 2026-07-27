@@ -15,6 +15,8 @@ spec:
         namespace: forgejo
       interval: 12h
   values:
+    knownLastVersion: true
+
     forgejo:
       url: http://forgejo.forgejo.svc.cluster.local:3000
       existingSecret: forgejo-runner-config
