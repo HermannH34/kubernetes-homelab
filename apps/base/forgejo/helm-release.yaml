@@ -39,6 +39,10 @@ spec:
       name: forgejo-env
       valuesKey: lfs-jwt-secret
       targetPath: gitea.config.lfs.JWT_SECRET
+    - kind: Secret
+      name: forgejo-runner-token
+      valuesKey: token
+      targetPath: runner.forgejo.token
   values:
     replicaCount: 1
 
@@ -107,3 +111,17 @@ spec:
 
         security:
           INSTALL_LOCK: true
+
+    runner:
+      enabled: true
+      replicaCount: 1
+
+      image:
+        repository: code.forgejo.org/forgejo/runner
+        tag: "15.0.3"
+
+      forgejo:
+        url: http://forgejo.forgejo.svc.cluster.local:3000
+
+      container:
+        driver: kubernetes
