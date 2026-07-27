@@ -5,4 +5,4 @@ resources:
   - app-secrets.yaml
   - backup-secrets.yaml
   - scheduled-backup.yaml
-  - runner-token-secret.yaml
+  - runner-config.yaml
