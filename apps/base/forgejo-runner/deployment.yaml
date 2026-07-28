@@ -18,7 +18,7 @@ spec:
       serviceAccountName: forgejo-runner
       containers:
         - name: runner
-          image: code.forgejo.org/forgejo/runner:3.5.0
+          image: code.forgejo.org/forgejo/runner:12.13.2
           command: ["sh", "-c"]
           args:
             - |
