@@ -4,4 +4,4 @@ resources:
   - ../base
   - ./pgadmin
   - ./forgejo
-  - ./forgejo-runner
+  - ./forgejo-runner/runner-secret.yaml
