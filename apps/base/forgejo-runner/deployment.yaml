@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo-runner
+  namespace: forgejo-runner
+  labels:
+    app: forgejo-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forgejo-runner
+  template:
+    metadata:
+      labels:
+        app: forgejo-runner
+    spec:
+      serviceAccountName: forgejo-runner
+      containers:
+        - name: runner
+          image: code.forgejo.org/forgejo/runner:3.5.0
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "Waiting for Docker daemon..."
+              while ! wget -q -O- http://localhost:2375/version >/dev/null 2>&1; do
+                sleep 1
+              done
+              echo "Docker is ready!"
+              forgejo-runner daemon --config /data/config.yaml
+          env:
+            - name: FORGEJO_INSTANCE_URL
+              value: "https://forgejo.quickyrails.com/"
+            - name: FORGEJO_RUNNER_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: forgejo-runner-secret
+                  key: token
+            - name: DOCKER_HOST
+              value: "tcp://localhost:2375"
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          volumeMounts:
+            - name: runner-data
+              mountPath: /data
+            - name: config
+              mountPath: /data/config.yaml
+              subPath: config.yaml
+        - name: dind
+          image: docker:29-dind
+          securityContext:
+            privileged: true
+          env:
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          args:
+            - "--host=tcp://0.0.0.0:2375"
+          volumeMounts:
+            - name: docker-data
+              mountPath: /var/lib/docker
+      volumes:
+        - name: runner-data
+          persistentVolumeClaim:
+            claimName: forgejo-runner-data
+        - name: docker-data
+          emptyDir: {}
+        - name: config
+          configMap:
+            name: forgejo-runner-config
