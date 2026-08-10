@@ -5,3 +5,4 @@ resources:
   - ./pgadmin
   - ./forgejo
   - ./forgejo-runner/runner-secret.yaml
+  - ./iterato

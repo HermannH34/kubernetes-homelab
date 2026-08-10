@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: iterato
+resources:
+  - ../../base/iterato
+  - database.yaml
+  - app-secrets.yaml
+  - db-secret.yaml
+  - backup-secrets.yaml
