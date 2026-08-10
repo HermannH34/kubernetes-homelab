@@ -20,6 +20,8 @@ spec:
       labels:
         app: iterato
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull-secret
       containers:
         - name: iterato
           image: ghcr.io/hermannh34/iterato:40891b0
