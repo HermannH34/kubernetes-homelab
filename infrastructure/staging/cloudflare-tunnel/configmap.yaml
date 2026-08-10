@@ -14,4 +14,6 @@ data:
       service: http://forgejo-http.forgejo.svc.cluster.local:3000
     - hostname: iterato.quickyrails.com
       service: http://iterato.iterato.svc.cluster.local:3000
+    - hostname: iterato.agency
+      service: http://iterato.iterato.svc.cluster.local:3000
     - service: http_status:404
