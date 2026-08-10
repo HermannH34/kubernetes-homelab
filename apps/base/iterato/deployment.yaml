@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: iterato
-          image: ghcr.io/hermannh34/iterato:latest
+          image: ghcr.io/hermannh34/iterato:40891b0
           ports:
             - containerPort: 3000
               protocol: TCP
