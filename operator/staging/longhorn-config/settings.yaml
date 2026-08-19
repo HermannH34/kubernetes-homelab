@@ -1,16 +1,12 @@
 apiVersion: longhorn.io/v1beta2
-kind: Setting
+kind: BackupTarget
 metadata:
-  name: backup-target
+  name: default
   namespace: longhorn-system
-value: "s3://homelab-backup/longhorn?endpoint=https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com&region=auto"
----
-apiVersion: longhorn.io/v1beta2
-kind: Setting
-metadata:
-  name: backup-target-credential-secret
-  namespace: longhorn-system
-value: longhorn-backup-s3
+spec:
+  backupTargetURL: "s3://homelab-backup/longhorn?endpoint=https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com&region=auto"
+  credentialSecret: longhorn-backup-s3
+  pollInterval: 5m
 ---
 apiVersion: longhorn.io/v1beta2
 kind: Setting
