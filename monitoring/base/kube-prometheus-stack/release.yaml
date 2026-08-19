@@ -35,4 +35,9 @@ spec:
       persistence:
         enabled: true
         existingClaim: grafana-data
+      sidecar:
+        dashboards:
+          enabled: true
+          label: grafana_dashboard
+          searchNamespace: ALL
 
