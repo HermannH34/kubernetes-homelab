@@ -4,3 +4,4 @@ namespace: longhorn-system
 resources:
   - settings.yaml
   - recurring-jobs.yaml
+  - local-path-patch.yaml

@@ -63,7 +63,7 @@ spec:
       enabled: true
       create: true
       size: 10Gi
-      storageClass: local-path
+      storageClass: longhorn
       accessModes:
         - ReadWriteOnce
 
