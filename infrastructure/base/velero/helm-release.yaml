@@ -18,6 +18,11 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
+    upgradeCRDs:
+      kubectl:
+        image:
+          repository: bitnami/kubectl
+          tag: "1.30"
     configuration:
       backupStorageLocation:
         - name: default
