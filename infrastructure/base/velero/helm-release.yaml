@@ -26,6 +26,9 @@ spec:
           bucket: homelab-backup
           prefix: velero
           default: true
+          credential:
+            name: velero-backup-s3
+            key: cloud
           config:
             region: auto
             s3Url: https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com
@@ -33,7 +36,6 @@ spec:
       volumeSnapshotLocation: []
     credentials:
       useSecret: false
-      existingSecret: velero-backup-s3
     initContainers:
       - name: velero-plugin-for-aws
         image: velero/velero-plugin-for-aws:v1.11.1
