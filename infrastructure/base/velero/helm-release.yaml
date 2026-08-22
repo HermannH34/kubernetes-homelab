@@ -32,9 +32,8 @@ spec:
             s3ForcePathStyle: true
       volumeSnapshotLocation: []
     credentials:
-      useSecret: true
-      secret:
-        name: velero-backup-s3
+      useSecret: false
+      existingSecret: velero-backup-s3
     initContainers:
       - name: velero-plugin-for-aws
         image: velero/velero-plugin-for-aws:v1.11.1
