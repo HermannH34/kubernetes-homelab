@@ -1,0 +1,18 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: pvc-backup
+  namespace: velero
+spec:
+  schedule: "0 */12 * * *"
+  template:
+    includedNamespaces:
+      - "*"
+    includedResources:
+      - persistentvolumeclaims
+      - persistentvolumes
+    excludedNamespaces:
+      - velero
+      - kube-system
+    storageLocation: default
+    ttl: 168h0m0s

@@ -1,0 +1,58 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: velero
+  namespace: velero
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: velero
+      version: "8.x"
+      sourceRef:
+        kind: HelmRepository
+        name: velero
+        namespace: velero
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  values:
+    configuration:
+      backupStorageLocation:
+        - name: default
+          provider: aws
+          bucket: homelab-backup
+          prefix: velero
+          default: true
+          config:
+            region: auto
+            s3Url: https://b73c406dcde1daffd850e59e7121516f.r2.cloudflarestorage.com
+            s3ForcePathStyle: true
+      volumeSnapshotLocation: []
+    credentials:
+      useSecret: true
+      secret:
+        name: velero-backup-s3
+    initContainers:
+      - name: velero-plugin-for-aws
+        image: velero/velero-plugin-for-aws:v1.11.1
+        volumeMounts:
+          - mountPath: /target
+            name: plugins
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+    nodeAgent:
+      enabled: true
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 500m
+          memory: 256Mi
