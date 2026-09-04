@@ -12,6 +12,8 @@ data:
     ingress:
     - hostname: forgejo.quickyrails.com
       service: http://forgejo-http.forgejo.svc.cluster.local:3000
+    - hostname: grafana.quickyrails.com
+      service: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local:80
     - hostname: iterato.agency
       service: http://iterato.iterato.svc.cluster.local:3000
     - service: http_status:404
