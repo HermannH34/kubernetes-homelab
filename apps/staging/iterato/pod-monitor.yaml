@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: iterato-db-minotoring
+  name: iterato-db-monitoring
 spec:
   selector:
     matchLabels:
