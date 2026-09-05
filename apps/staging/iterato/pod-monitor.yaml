@@ -8,6 +8,6 @@ metadata:
 spec:
   selector:
     matchLabels:
-      postgresql: iterato-db
+      cnpg.io/cluster: iterato-db
   podMetricsEndpoints:
     - port: metrics
