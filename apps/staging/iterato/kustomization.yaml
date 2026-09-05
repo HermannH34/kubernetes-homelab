@@ -7,3 +7,4 @@ resources:
   - db-secret.yaml
   - backup-secrets.yaml
   - scheduled-backup.yaml
+  - pod-monitor.yaml
