@@ -1,13 +1,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: iterato-db-monitoring
-  namespace: iterato
-  labels:
-    release: kube-prometheus-stack
+  name: forgejo-db-monitoring
+  namespace: forgejo
 spec:
   selector:
     matchLabels:
-      cnpg.io/cluster: forgejo-db
+      postgresql: cluster-example
   podMetricsEndpoints:
     - port: metrics
