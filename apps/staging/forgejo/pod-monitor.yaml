@@ -6,6 +6,6 @@ metadata:
 spec:
   selector:
     matchLabels:
-      postgresql: cluster-example
+      cnpg.io/cluster: forgejo-db
   podMetricsEndpoints:
     - port: metrics
