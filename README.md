@@ -43,7 +43,6 @@ Apps are exposed to the internet via **Cloudflare Tunnels**. The agent establish
 ## Operators
 
 Kubernetes operators (CloudNativePG, Prometheus, etc.) are deployed via: 
-directory.
 
 | Operator              | Location                          | Notes            |
 |-----------------------|-----------------------------------|------------------|
