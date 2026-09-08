@@ -24,6 +24,7 @@ Raspberry Pis are great for learning and experimenting without breaking the bank
 
 I chose to start with the ![K3s](https://img.shields.io/badge/K3s-FFC61C?style=flat-square&logo=k3s&logoColor=black)  **K3s** Kubernetes distribution, running on a small edge machine - simpler to get started with.
 
+However, I plan to migrate to [**Talos Linux**](https://www.talos.dev) by the end of the year. Talos is a fully secured, hardened OS designed specifically for Kubernetes - it exposes only the Kubernetes API, with no SSH, no package manager, and no shell. Pure infrastructure as code.
 
 ## Security
 
