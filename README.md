@@ -10,9 +10,14 @@ Through this Kubernetes journey, I want to get more involved in open source and 
 
 ## Hardware
 
-* 1 Raspberry Pi 5 8 GB: best performance for the control plane
+Expensive hardware is the biggest homelab myth. I started mine on a ThinkPad T420, and 
+that's the beauty of Kubernetes - it turns whatever hardware you have into a cluster.
 
-* 2 Raspberry Pi 5 4 GB: perfect for worker nodes
+I then moved to Raspberry Pis for one simple reason: to actually cluster them. 
+Raspberry Pis are great for learning and experimenting without breaking the bank:
+
+- 1× Raspberry Pi 5 8GB - control plane
+- 2× Raspberry Pi 5 4GB - worker nodes
   
 
 ## Software
