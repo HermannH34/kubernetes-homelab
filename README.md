@@ -66,11 +66,44 @@ Kubernetes operators (CloudNativePG, Prometheus, etc.) are deployed via:
 
 The repository is fully declarative - YAML files are the source of truth.
 
-| Folder         | Description                                                                 |
-|----------------|-----------------------------------------------------------------------------|
-| `apps/`        | User workloads. Each subdirectory is one Flux CD Application (namespace = dir name). |
-| `core/`        | Flux CD configuration and bootstrapping.                                    |
-| `infra/`       | Infrastructure configs: Cloudflare tunnels, Renovate.                       |
-| `monitoring/`  | Monitoring stack (Kube-Prometheus Stack).                                   |
-| `operators/`   | Kubernetes operators (CNPG).                                                |
-
+```
+├── apps/                                   # All apps deployed. Each subdirectory is one Flux CD Application (namespace = dir name).
+│   ├── base/
+│   │   ├── 
+│   │   ├── 
+│   │   └── 
+│   └── staging/
+│       ├──
+│       ├── 
+│       └── 
+├── clusters/
+│   └── staging/.                              # Flux CD configuration and bootstrapping
+│       ├── flux-system/
+│       ├── apps.yaml
+│       ├── infrastructure.yaml
+│       ├── monitoring.yaml
+│       └── operator.yaml
+├── infrastructure/                            # 	Infrastructure configs (Cloudflare tunnels, Renovate)
+│   ├── base/
+│   │   ├── cloudflare-tunnel/
+│   │   ├── flux-image-automation/
+│   │   └── renovate/
+│   └── staging/
+│       ├── cloudflare-tunnel/
+│       ├── flux-image-automation/
+│       └── renovate/
+├── monitoring/
+│   ├── base/
+│   │   └── kube-prometheus-stack/
+│   └── staging/
+│       └── kube-prometheus-stack/
+├── operator/
+│   ├── base/
+│   │   └── database/
+│   └── staging/
+│       └── database/
+├── .sops.yaml
+├── cluster-health.sh
+├── renovate.json
+└── README.md                                  
+```
