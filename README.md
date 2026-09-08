@@ -33,7 +33,7 @@ Every sensitive information is encrypted using Mozilla SOPS with an age key to h
 **Flux CD** is the **GitOps** engine for the entire cluster. All resources are reconciled automatically via Kustomizations (see `cluster/staging/`).
 
 
-## Inetrnet Exposure
+## Internet Exposure
 
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white) 
 
