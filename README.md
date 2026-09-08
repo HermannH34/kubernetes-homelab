@@ -6,6 +6,7 @@ This repository is the single source of truth for my homelab - a self-hosted Kub
 
 This project serves as both a playground for learning and **experimenting with Kubernetes**, and a personal production environment to embrace independence by reducing my reliance on third-party platforms through **self-hosting**.
 
+Through this Kubernetes journey, I want to get more involved in open source and build in public - and maybe help you take your first steps into self-hosted Kubernetes along the way
 
 ## Hardware
 
