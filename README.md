@@ -83,7 +83,7 @@ The repository is fully declarative - YAML files are the source of truth.
 │       ├── infrastructure.yaml
 │       ├── monitoring.yaml
 │       └── operator.yaml
-├── infrastructure/                            # 	Infrastructure configs (Cloudflare tunnels, Renovate)
+├── infrastructure/                            # Infrastructure configs (Cloudflare tunnels, Renovate)
 │   ├── base/
 │   │   ├── cloudflare-tunnel/
 │   │   ├── flux-image-automation/
@@ -92,12 +92,12 @@ The repository is fully declarative - YAML files are the source of truth.
 │       ├── cloudflare-tunnel/
 │       ├── flux-image-automation/
 │       └── renovate/
-├── monitoring/
+├── monitoring/                                # Monitoring stack (Kube-Prometheus Stack)
 │   ├── base/
 │   │   └── kube-prometheus-stack/
 │   └── staging/
 │       └── kube-prometheus-stack/
-├── operator/
+├── operator/                                  # Kubernetes operators (PostgreSQL CNPG)
 │   ├── base/
 │   │   └── database/
 │   └── staging/
