@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beszel-hub
+  namespace: beszel
+  labels:
+    app: beszel-hub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beszel-hub
+  template:
+    metadata:
+      labels:
+        app: beszel-hub
+    spec:
+      containers:
+        - name: beszel-hub
+          image: henrygd/beszel:0.19.0
+          ports:
+            - containerPort: 8090
+              protocol: TCP
+          env:
+            - name: APP_URL
+              value: "https://beszel.iterato.agency"
+          volumeMounts:
+            - name: data
+              mountPath: /beszel_data
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          readinessProbe:
+            exec:
+              command:
+                - /beszel
+                - health
+                - --url
+                - http://localhost:8090
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            exec:
+              command:
+                - /beszel
+                - health
+                - --url
+                - http://localhost:8090
+            initialDelaySeconds: 30
+            periodSeconds: 30
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: beszel-data
