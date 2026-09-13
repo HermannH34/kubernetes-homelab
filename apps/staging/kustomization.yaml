@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
   - ../base
   - ./forgejo
-  - ./forgejo-runner/runner-secret.yaml
   - ./iterato
