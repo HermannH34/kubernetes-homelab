@@ -28,4 +28,4 @@ spec:
         maxParallel: 4
       data:
         compression: gzip
-    retentionPolicy: "1d"
+    retentionPolicy: "30d"
