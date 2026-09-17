@@ -1,0 +1,32 @@
+# migration-pod.yaml - Pod to copy data between PVCs
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data-migrator
+  namespace: uptime-kuma
+spec:
+  restartPolicy: Never
+  containers:
+    - name: migrator
+      image: alpine:latest
+      command:
+        - sh
+        - -c
+        - |
+          echo "Starting data migration..."
+          # Copy all data from source to destination
+          cp -av /source/. /destination/
+          echo "Migration complete! Files copied:"
+          ls -la /destination/
+      volumeMounts:
+        - name: source
+          mountPath: /source
+        - name: destination
+          mountPath: /destination
+  volumes:
+    - name: source
+      persistentVolumeClaim:
+        claimName: uptime-kuma # Old PVC
+    - name: destination
+      persistentVolumeClaim:
+        claimName: uptime-kuma-longhorn # New Longhorn PVC
