@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: beszel-data
+  name: beszel-data-longhorn
   namespace: beszel
 spec:
   accessModes:
